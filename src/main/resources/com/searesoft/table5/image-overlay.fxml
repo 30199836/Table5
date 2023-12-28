@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF88;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <columnConstraints>
+        <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints fillHeight="false" percentHeight="100.0" valignment="CENTER" vgrow="NEVER" />
+    </rowConstraints>
+    <children>
+        <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+            <children>
+                <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" VBox.vgrow="NEVER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints fillHeight="false" vgrow="NEVER" />
+                    </rowConstraints>
+                    <children>
+                        <Label fx:id="labelName" text="Plain Burger" textFill="WHITE" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                     <GridPane.margin>
+                        <Insets left="7.0" />
+                     </GridPane.margin>
+                        </Label>
+                        <ImageView fx:id="imageClose" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                            <image>
+                                <Image url="@../../../images/close-white256.png" />
+                            </image>
+                            <GridPane.margin>
+                                <Insets right="7.0" />
+                            </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                        </ImageView>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <padding>
+                        <Insets bottom="4.0" top="4.0" />
+                    </padding>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+                </GridPane>
+                    <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #FFFFFF;" VBox.vgrow="ALWAYS">
+                        <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints maxHeight="1.7976931348623157E308" valignment="CENTER" vgrow="ALWAYS" />
+                        </rowConstraints>
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+               <children>
+                  <ImageView fx:id="image" fitHeight="256.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor></ImageView>
+               </children>
+                    </GridPane>
+            </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+        </VBox>
+    </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+</GridPane>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="root" alignment="TOP_CENTER" layoutX="0" layoutY="0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="300.0" />
+        <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="136.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="ALWAYS" />
+      <RowConstraints />
+    </rowConstraints>
+    <children>
+          <Label fx:id="labelRequired" alignment="TOP_LEFT" style="-fx-background-color: white;" text=" Required " GridPane.columnIndex="1">
+              <font>
+                  <Font name="System Italic" size="14.0" />
+              </font>
+         <GridPane.margin>
+            <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
+         </GridPane.margin>
+          </Label>
+      <Label fx:id="labelName" mnemonicParsing="false" text="Choose one" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="4.0" left="8.0" right="8.0" top="4.0" />
+         </GridPane.margin>
+      </Label>
+    </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</GridPane>

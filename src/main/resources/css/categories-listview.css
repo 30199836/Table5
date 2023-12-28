@@ -1,0 +1,13 @@
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: #000000;
+    -fx-text-fill: white;
+}
+
+.list-cell:odd {
+    -fx-background-color: white;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #D0D0D0;
+    -fx-text-fill: black;
+}

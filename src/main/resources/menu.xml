@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<menu>
+    <lists>
+        <menuList name="sauce">
+            <listItem>No Sauce</listItem>
+            <listItem>Mayo</listItem>
+            <listItem>Ketchup</listItem>
+            <listItem>Garlic Mayo</listItem>
+            <listItem>Burger Sauce</listItem>
+            <listItem>BBQ Sauce</listItem>
+            <listItem>Sweet Chilli</listItem>
+            <listItem>Hot Chilli</listItem>
+            <listItem>Mustard</listItem>
+        </menuList>
+        <menuList name="salad">
+            <listItem>Lettuce</listItem>
+            <listItem>Cucumber</listItem>
+            <listItem>Tomato</listItem>
+            <listItem>Fresh Red Onion</listItem>
+        </menuList>
+        <menuList name="drink">
+            <listItem>Irn Bru 330ml</listItem>
+            <listItem>Irn Bru Sugar Free 330ml</listItem>
+            <listItem>Coca Cola 330ml</listItem>
+            <listItem>Coca Cola Zero 330ml</listItem>
+            <listItem>Fanta Orange 330ml</listItem>
+            <listItem>Fanta Orange Sugar Free 330ml</listItem>
+            <listItem>Fanta Lemon 330ml</listItem>
+            <listItem>Sprite 330ml</listItem>
+            <listItem>Tango Orange 330ml</listItem>
+        </menuList>
+        <menuList name="topping">
+            <listItem price1="0.6" price2="0.75" price3="0.9">Bacon</listItem>
+            <listItem price1="0.4" price2="0.55" price3="0.7">Ham</listItem>
+            <listItem price1="0.6" price2="0.75" price3="0.9">Chicken</listItem>
+            <listItem price1="0.6" price2="0.75" price3="0.9">Pepperoni</listItem>
+            <listItem price1="0.6" price2="0.75" price3="0.9">Salami</listItem>
+            <listItem price1="0.4" price2="0.5" price3="0.6">Mushrooms</listItem>
+            <listItem price1="0.4" price2="0.5" price3="0.6">Pepper</listItem>
+            <listItem price1="0.3" price2="0.4" price3="0.5">Red Onion</listItem>
+            <listItem price1="0.5" price2="0.7" price3="0.8">Cheddar</listItem>
+            <listItem price1="0.5" price2="0.7" price3="0.8">Leicester Cheese</listItem>
+            <listItem price1="0.6" price2="0.75" price3="0.9">Gorgonzola</listItem>
+            <listItem price1="0.3" price2="0.4" price3="0.5">Olive</listItem>
+            <listItem price1="0.3" price2="0.4" price3="0.5">Boiled Egg</listItem>
+            <listItem price1="0.4" price2="0.5" price3="0.6">Sweetcorn</listItem>
+            <listItem price1="0.3" price2="0.4" price3="0.5">Chili Pepper</listItem>
+            <listItem price1="0.3" price2="0.4" price3="0.5">Jalapeños</listItem>
+        </menuList>
+    </lists>
+
+    <categories>
+        <category name="Sweet Crepes">
+            <description>Freshly made crepes (40cm)</description>
+            <menuItem name="Golden Syrup Crepe">
+                <description>40cm crepe with golden syrup</description>
+                <price>3.99</price>
+            </menuItem>
+            <menuItem name="Strawberry Jam Crepe">
+                <description>40cm crepe filled with strawberry jam</description>
+                <price>4.5</price>
+            </menuItem>
+            <menuItem name="Nutella Crepe">
+                <description>40cm crepe filled with Nutella</description>
+                <price>4.95</price>
+            </menuItem>
+            <menuItem name="Nutella &amp; Banana Crepe">
+                <description>40cm crepe filled with banana and Nutella</description>
+                <price>5.6</price>
+            </menuItem>
+            <menuItem name="Nutella &amp; Strawberry Crepe">
+                <description>40cm crepe filled with strawberries and Nutella</description>
+                <price>5.6</price>
+            </menuItem>
+            <menuItem name="Nutella &amp; Pineapple Crepe">
+                <description>40cm crepe filled with pineapple and Nutella</description>
+                <price>5.6</price>
+            </menuItem>
+            <menuItem name="Oreo Crepe">
+                <description>40cm crepe filled with Nutella, banana, small crushed Oreo pieces, chocolate toppings</description>
+                <price>7.95</price>
+            </menuItem>
+            <menuItem name="Kit Kat Crepe">
+                <description>40cm crepe filled with Nutella, pineapple, kit kat pieces, Toffee toppings</description>
+                <price>7.95</price>
+            </menuItem>
+            <menuItem name="Biscoff Crepe">
+                <description>40cm crepe filled with Nutella, strawberry, biscuits crumbs, biscoff toppings</description>
+                <price>7.95</price>
+            </menuItem>
+            <menuItem name="House Special Crepe">
+                <description>40cm crepe filled with Nutella, strawberry, banana, kit kat pieces, biscoff crumbs & flake pieces</description>
+                <price>8.2</price>
+            </menuItem>
+
+        </category>
+        <category name="Savoury Crepes">
+            <description>Freshly made crepes (40cm)</description>
+        </category>
+        <category name="Starters">
+        </category>
+        <category name="7&quot; Nachos">
+        </category>
+        <category name="Burgers">
+            <description>Make it a meal for £2.95 (Chips and a 330ml Drink)</description>
+            <menuItem name="Plain Burger">
+                <description>Burger 4oz, cheese and your choice of salad and sauce</description>
+                <option name="On its own">
+                    <price>2.95</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>5.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Cheese Burger">
+                <description>Burger 4oz, cheese and your choice of salad and sauce</description>
+                <option name="On its own">
+                    <price>3.95</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>6.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Double Cheese Burger">
+                <description>Burger 4oz x2, cheese x2 and your choice of salad and sauce</description>
+                <option name="On its own">
+                    <price>4.75</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>7.65</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Triple Cheese Burger">
+                <description>Burger 4oz x3, cheese x3 and your choice of salad and sauce</description>
+                <option name="On its own">
+                    <price>5.5</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>8.45</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Chicken Burger">
+                <description>Chicken, cheese and your choice of salad and sauce</description>
+                <option name="On its own">
+                    <price>3.95</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>6.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Bacon Burger">
+                <description>Burger 4oz, cheese, bacon and your choice of salad and sauce</description>
+                <option name="On its own">
+                    <price>4.7</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>7.65</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Jalapeño Burger">
+                <description>Burger 4oz, cheddar, jalapeño, bacon, fried onion and your choice of salad and sauce</description>
+                <option name="On its own">
+                    <price>5.1</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>8.05</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="South Carolina Burger">
+                <description>Burger 4oz, cheese, bacon, crispy onions and your choice of salad and sauce</description>
+                <option name="On its own">
+                    <price>4.95</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>7.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="American Burger">
+                <description>Burger 4oz, mozzarella, leicester cheese wrapped in egg, caramelised onion and your choice of salad and sauce</description>
+                <option name="On its own">
+                    <price>6.95</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>9.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Double American Burger">
+                <description>Burger 4oz x2, mozzarella, leicester cheese wrapped in egg, caramelised onion and your choice of salad and sauce</description>
+                <option name="On its own">
+                    <price>8.95</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>11.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="BBQ Chicken Burger">
+                <description>Chicken Fillet, cheese, caramelised onion and your choice of salad and sauce</description>
+                <option name="On its own">
+                    <price>5.1</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>8.05</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Factory Burger">
+                <price>8.5</price>
+                <description>Burger, Cheese, Hash brown, caramelised onion, bacon, egg and your choice of salad and sauce</description>
+                <choice name="Salad" requiredCount="0" menuList="salad"/>
+                <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Hangry Chef Burger">
+                <price>8.95</price>
+                <description>Burger, cheese, pepperoni, bacon, caramelised onion, pickles and your choice of salad and sauce</description>
+                <choice name="Salad" requiredCount="0" menuList="salad"/>
+                <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Zinger Burger">
+                <description>Spicy Zinger Burger made with chicken breast</description>
+                <option name="On its own">
+                    <price>4.45</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>7.4</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Double Zinger Burger">
+                <description>Zinger ×2, topped with 2 slices of cheese</description>
+                <option name="On its own">
+                    <price>5.45</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>8.4</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Tattie Zinger Burger">
+                <description>Zinger topped with hash brown and cheese</description>
+                <option name="On its own">
+                    <price>5.35</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>8.3</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Buffalo Hot Burger">
+                <description>Double Zinger topped with jalapeños, cheese and buffalo sauce</description>
+                <option name="On its own">
+                    <price>6.5</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>9.45</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Bombay Burger">
+                <description>Zinger Burger topped with chicken tikka and fried onion</description>
+                <option name="On its own">
+                    <price>6.5</price>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>9.45</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Salad" requiredCount="0" menuList="salad"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Cowboy Burger">
+                <price>8.95</price>
+                <description>Burger, cheddar, BBQ pulled Pork, lettuce</description>
+                <choice name="Salad" requiredCount="0" menuList="salad"/>
+                <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+            </menuItem>
+        </category>
+        <category name="Hot Dog">
+            <description>Make it a meal for £2.95 (Chips and a 330ml Drink)</description>
+            <menuItem name="Classic Hot Dog">
+                <description>Hot dog, fried onion, crispy onions and your choice of sauce</description>
+                <option name="On its own">
+                    <price>3.95</price>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>6.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Mac'n'Cheese Hot Dog">
+                <description>Hotdog, mac'n'cheese, and your choice of sauce</description>
+                <option name="On its own">
+                    <price>4.95</price>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>7.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Bacon Hot Dog">
+                <description>Hot dog, bacon, crispy onions, cheddar and your choice of sauce</description>
+                <option name="On its own">
+                    <price>5.95</price>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>8.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Jalapeño Hot Dog">
+                <description>Hot dog, jalapenños, fried onions, mozzarella, cheddar and your choice of sauce</description>
+                <option name="On its own">
+                    <price>4.95</price>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>7.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Chicken Hot Dog">
+                <description>Hot dog, chicken, crispy onions, cheese and your choice of sauce</description>
+                <option name="On its own">
+                    <price>5.95</price>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>8.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+            <menuItem name="Pulled Pork Hot Dog">
+                <description>Hot Dog, pulled Pork with a BBQ sauce, grated cheddar with fried onions</description>
+                <option name="On its own">
+                    <price>6.95</price>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+                <option name="Make it a meal">
+                    <price>9.9</price>
+                    <choice name="Drink" requiredCount="1" menuList="drink"/>
+                    <choice name="Sauce" requiredCount="1" menuList="sauce"/>
+                </option>
+            </menuItem>
+        </category>
+        <category name="Loaded Fries">
+        </category>
+        <category name="Kids Menu">
+        </category>
+        <category name="Greek Souvlaki">
+            <description>Choose hot or normal</description>
+        </category>
+        <category name="Omelettes">
+        </category>
+        <category name="Rice Dishes">
+        </category>
+        <category name="Risotti">
+            <description>Traditional Italian Arborio rice dishes.</description>
+        </category>
+        <category name="Pasta">
+            <description>Choose between Macaroni, Pene, Spaghetti and Tagliatelle</description>
+        </category>
+        <category name="Calzone">
+        </category>
+        <category name="Focaccia (12&quot;)">
+            <description>Oven baked pizza bianca</description>
+            <menuItem name="Focaccia Rosmarino">
+                <description>12" Focaccia with Fresh Rosemary and Sea Salt</description>
+                <price>4.95</price>
+            </menuItem>
+            <menuItem name="Focaccia Mozzarella">
+                <description>12" Focaccia with Garlic Butter and Mozzarella</description>
+                <price>5.7</price>
+            </menuItem>
+            <menuItem name="Focaccia Pomodorini">
+                <description>12" Focaccia with Cherry Tomato, Garlic Butter and Sea Salt</description>
+                <price>5.5</price>
+            </menuItem>
+            <menuItem name="Focaccia Aglio">
+                <description>12" Focaccia with Garlic and Sea Salt</description>
+                <price>4.95</price>
+            </menuItem>
+        </category>
+        <category name="Pizza">
+        </category>
+        <category name="White Pizza ">
+            <description>Double cream and cheese sauce base.</description>
+        </category>
+        <category name="Potato Gratin">
+            <description>Potato, cream, garlic butter and mozzarella.</description>
+        </category>
+        <category name="Meat Dishes">
+        </category>
+        <category name="Dips">
+        </category>
+        <category name="Desserts">
+        </category>
+        <category name="Drinks">
+        </category>
+    </categories>
+</menu>
