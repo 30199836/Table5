@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.skin.ListViewSkin;
 import javafx.scene.control.skin.VirtualFlow;
@@ -25,6 +26,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 
 public class MainForm extends BaseDialog {
@@ -71,6 +73,7 @@ public class MainForm extends BaseDialog {
     private MenuItemController firstMenuItem;
     private BaseMenuController overlay;
     private Label[] headers;
+    private ArrayList<ChoiceHeaderController> requiredChoiceHeaderControllers = new ArrayList<>();
     private double width, height;
     private boolean sizeChanged = false;
     private final Order order = new Order();
@@ -238,7 +241,20 @@ public class MainForm extends BaseDialog {
             menuItem.setSelectedIndex(optionIndex);
 
             ovl.gridPaneAdd.setOnMouseClicked(e -> {
-                if (!ovl.labelAdd.getText().equals("Add to Order")) return;
+                if (!ovl.labelAdd.getText().equals("Add to Order")) {
+                    //scroll to the first required choice
+                    if (requiredChoiceHeaderControllers.size() > 0) {
+                        double height = ovl.scrollPaneOptions.getContent().getBoundsInLocal().getHeight() - ovl.scrollPaneOptions.getHeight();
+                        double y = requiredChoiceHeaderControllers.get(0).root.getBoundsInParent().getMinY();
+                        y = Math.min(1, y / height);
+                        if (ovl.scrollPaneOptions.getVvalue() != y) {
+                            ovl.scrollPaneOptions.setVvalue(y);
+                            NodeFX.pulsate(requiredChoiceHeaderControllers.get(0).root, 1);
+                        }
+                    }
+                    return;
+
+                }
                 orderVScrollPos = scrollPaneOrder.getVvalue();
                 Order.Item orderItem = order.new Item(order);
                 order.items.add(orderItem);
@@ -313,6 +329,7 @@ public class MainForm extends BaseDialog {
                     });
                 }
             }
+            requiredChoiceHeaderControllers.clear();
             if (optionIndex > -1 && optionIndex < menuItem.options().size()) {
                 MenuOption option = menuItem.options().get(optionIndex);
                 for (int i = 0; i < option.choices().size(); i++) {
@@ -325,6 +342,9 @@ public class MainForm extends BaseDialog {
                         ovl.vboxOptionsRoot.getChildren().add(choiceHeaderController.root);
                         NodeFX.fadeIn(choiceHeaderController.root);
                         choiceHeaderController.init(choice);
+                        if (choiceHeaderController.choice().requiredCount() > 0) {
+                            requiredChoiceHeaderControllers.add(choiceHeaderController);
+                        }
 
                         ToggleGroup choiceToggleGroup = new ToggleGroup();
                         for (int j = 0; j < choice.menuList().items().size(); j++) {
@@ -342,9 +362,13 @@ public class MainForm extends BaseDialog {
                                 choiceController.radioButton.setToggleGroup(choiceToggleGroup);
                                 choiceController.radioButton.setOnMouseClicked(event -> {
                                     choiceHeaderController.labelRequired.setOpacity(0);
+                                    //remove the choice from the required headers
+                                    requiredChoiceHeaderControllers.remove(choiceHeaderController);
+                                    //set the selected index
                                     MenuChoice c = choiceController.choice();
                                     c.selectedIndices().clear();
                                     c.selectedIndices().add(c.menuList().indexOf(choiceController.radioButton.getText()));
+                                    //update the UI
                                     ovl.updateChoices();
                                 });
                             } else {
@@ -386,6 +410,7 @@ public class MainForm extends BaseDialog {
             //    root.getChildren().remove(root.getChildren().indexOf(overlay.root));
             overlay = null;
         }
+        requiredChoiceHeaderControllers.clear();
     }
 
     private void updateOrderPrice() {
@@ -474,9 +499,7 @@ public class MainForm extends BaseDialog {
 
         //set the contents if the category ListView and select the first item
         listViewCategories.setItems(cat);
-        if (!cat.isEmpty()) listViewCategories.getSelectionModel().
-
-                select(0);
+        if (!cat.isEmpty()) listViewCategories.getSelectionModel().select(0);
 
         //scroll to menu category header when the Listview category is selected
         listViewCategories.setOnMouseClicked(event ->
@@ -487,6 +510,7 @@ public class MainForm extends BaseDialog {
                 double height = scrollPaneMenu.getContent().getBoundsInLocal().getHeight() - scrollPaneMenu.getHeight();
                 double y = headers[index].getBoundsInParent().getMinY();
                 scrollPaneMenu.setVvalue(y / height);
+                NodeFX.pulsate(headers[index],1);
             }
         });
 
@@ -605,10 +629,12 @@ public class MainForm extends BaseDialog {
 
                     overlay.imageClose.setOnMouseClicked(event2 -> {
                         closeOverlay();
+                        introOverlay.startVideo();
                     });
 
                     overlay.root.setOnMouseClicked(event2 -> {
                         closeOverlay();
+                        introOverlay.startVideo();
                     });
                 } catch (Exception e) {
                     throw new RuntimeException(e);

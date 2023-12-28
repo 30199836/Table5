@@ -23,7 +23,7 @@ public class App extends Application {
         MainForm main = new MainForm(stage);
         loader.setController(main);
         scene = new Scene(loader.load(), width, height);
-        stage.setTitle("Currency Convertor");
+        stage.setTitle("Table5 - Savour the moment, taste the tradition!");
         stage.setMinWidth(width);
         stage.setMinHeight(height);
         stage.getIcons().add(new Image(App.class.getResourceAsStream("/icons/icon32.png")));

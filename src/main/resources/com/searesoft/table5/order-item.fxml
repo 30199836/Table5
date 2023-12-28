@@ -16,7 +16,7 @@
     <children>
         <VBox fx:id="vboxOrderRoot" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;">
             <children>
-                <GridPane>
+                <GridPane fx:id="gridPaneSeparator">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                     </columnConstraints>

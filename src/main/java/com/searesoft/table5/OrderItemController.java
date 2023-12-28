@@ -29,6 +29,8 @@ public class OrderItemController {
     Separator separator;
     @FXML
     VBox vboxOrderRoot;
+    @FXML
+    GridPane gridPaneSeparator;
     Order.Item item;
 
     /**
@@ -50,7 +52,8 @@ public class OrderItemController {
 
         //don't show the separator at the top
         if (item.order().items.size() == 1) {
-            separator.setPrefHeight(0);
+            vboxOrderRoot.getChildren().remove(gridPaneSeparator);
+          //  separator.setOpacity(0);
         }
 
         Label label;

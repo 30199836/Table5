@@ -28,38 +28,31 @@ public class IntroOverlayController {
     private boolean looping = false;
 
     public void init() {
-        Media media = null;
         URL url = App.class.getResource("/videos/Table5.mp4");
-        if (url != null) media = new Media(url.toExternalForm());
-        if (media != null) {
-            MediaPlayer player = new MediaPlayer(media);
-            video.setMediaPlayer(player);
-            player.setAutoPlay(true);
-            //  player.setCycleCount(0);
+        Media media = new Media(url.toExternalForm());
+        MediaPlayer player = new MediaPlayer(media);
+        player.setOnEndOfMedia(() -> {
+            if (stopped || looping) return;
+            looping = true;
+            new Thread(() -> {
+                try {
+                    Thread.sleep(10000);
+                    loopVideo();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                } finally {
+                    looping = false;
+                }
+            }).start();
+        });
 
-            player.setOnEndOfMedia(() -> {
-                if (stopped || looping) return;
-                looping = true;
-                new Thread(() -> {
-                    try {
-                        Thread.sleep(10000);
-                        loopVideo();
-                    } catch (Exception e) {
-                    } finally {
-                        looping = false;
-                    }
-                }).start();
-            });
-
-//            Platform.runLater(() -> {
-//                startVideo();
-//            });
-        }
+        video.setMediaPlayer(player);
+        player.play();
     }
 
     public void stopVideo() {
         stopped = true;
-    //    video.getMediaPlayer().stop();
+        video.getMediaPlayer().stop();
     }
 
     public void startVideo() {

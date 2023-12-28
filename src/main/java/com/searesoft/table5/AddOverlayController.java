@@ -5,6 +5,7 @@ import com.searesoft.table5.menu.MenuItem;
 import com.searesoft.table5.menu.MenuOption;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -38,6 +39,10 @@ public class AddOverlayController extends BaseMenuController {
     GridPane gridPaneAdd;
     @FXML
     Label labelAdd;
+    @FXML
+    ScrollPane scrollPaneOptions;
+
+
 
     /**
      * Initialize the controller
@@ -112,7 +117,6 @@ public class AddOverlayController extends BaseMenuController {
         //display the price with all the options added
         labelPrice.setText(String.format("£%.2f", price));
     }
-
     /**
      * Update the dialog size
      *

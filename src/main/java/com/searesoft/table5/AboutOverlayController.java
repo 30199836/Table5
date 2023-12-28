@@ -7,8 +7,14 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Border;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+
+import static java.awt.Desktop.getDesktop;
+
 
 /**
  * Controller for the product image overlay dialog
@@ -20,16 +26,24 @@ public class AboutOverlayController extends BaseMenuController {
     Label labelVersion;
 
     public void init(MenuItem menuItem) {
-        link.setBorder(Border.EMPTY);
         try {
             String ver = new String(App.class.getResourceAsStream("/version.txt").readAllBytes(), StandardCharsets.UTF_8);
             if (ver.length() > 0) {
                 labelVersion.setText("Version " + ver);
             }
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        link.setBorder(Border.EMPTY);
+        link.setOnMouseClicked(event -> {
+            try {
+                getDesktop().mail(new URI("mailto:" + link.getText()));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+
     }
 
     /**
