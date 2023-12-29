@@ -17,7 +17,9 @@ import static com.searesoft.lib.ByRef.BooleanRef;
 
 public class IntroOverlayController {
     @FXML
-    MediaView video;
+    MediaView videoLogo;
+    @FXML
+    MediaView videoDiscount;
     @FXML
     GridPane root;
     @FXML
@@ -28,7 +30,7 @@ public class IntroOverlayController {
     private boolean looping = false;
 
     public void init() {
-        URL url = App.class.getResource("/videos/Table5.mp4");
+        URL url = App.class.getResource("/videos/Table5-cropped.mp4");
         Media media = new Media(url.toExternalForm());
         MediaPlayer player = new MediaPlayer(media);
         player.setOnEndOfMedia(() -> {
@@ -46,13 +48,22 @@ public class IntroOverlayController {
             }).start();
         });
 
-        video.setMediaPlayer(player);
+        videoLogo.setMediaPlayer(player);
+        player.play();
+
+        url = App.class.getResource("/videos/10% Off-cropped.mp4");
+        media = new Media(url.toExternalForm());
+        player = new MediaPlayer(media);
+        player.setAutoPlay(true);
+        player.setCycleCount(MediaPlayer.INDEFINITE);
+        videoDiscount.setMediaPlayer(player);
         player.play();
     }
 
     public void stopVideo() {
         stopped = true;
-        video.getMediaPlayer().stop();
+        videoLogo.getMediaPlayer().stop();
+        videoDiscount.getMediaPlayer().stop();
     }
 
     public void startVideo() {
@@ -61,14 +72,18 @@ public class IntroOverlayController {
     }
 
     private void loopVideo() {
-        MediaPlayer player = video.getMediaPlayer();
+        MediaPlayer player = videoLogo.getMediaPlayer();
         player.seek(Duration.ZERO);
         player.play();
+        videoDiscount.getMediaPlayer().play();
     }
 
     public void updateSize(double width, double height) {
         double size = Math.round(Math.min(width, height) * 0.75);
-        video.setFitWidth(size);
-        video.setFitHeight(size);
+        videoLogo.setFitWidth(size);
+        videoLogo.setFitHeight(size);
+        size *= 0.5;
+        videoDiscount.setFitWidth(size);
+        videoDiscount.setFitHeight(size);
     }
 }

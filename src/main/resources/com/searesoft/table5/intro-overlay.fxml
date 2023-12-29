@@ -25,13 +25,14 @@
                     <rowConstraints>
                         <RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" minHeight="-Infinity" valignment="CENTER" vgrow="ALWAYS" />
                   <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
+                  <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
                     </rowConstraints>
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
                     <children>
-                  <MediaView fx:id="video" fitHeight="256.0" fitWidth="256.0" />
-                  <Label fx:id="labelStart" alignment="CENTER" style="-fx-background-color: white;" text="Start a New Order" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <MediaView fx:id="videoLogo" fitHeight="256.0" fitWidth="256.0" />
+                  <Label fx:id="labelStart" alignment="CENTER" style="-fx-background-color: white;" text="Start a New Order" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -42,9 +43,10 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <GridPane.margin>
-                        <Insets bottom="128.0" />
+                        <Insets top="96.0" />
                      </GridPane.margin>
                   </Label>
+                  <MediaView fx:id="videoDiscount" fitHeight="140.0" fitWidth="140.0" GridPane.rowIndex="1" />
                     </children>
                 </GridPane>
             </children>

@@ -81,7 +81,7 @@ public class MenuItemController extends BaseMenuController {
     public void updateSize(double width, double height) {
         //the container is set to use 60% width so the text wrap width is...
         //(width * 60%) - (image container width + half image width) - margin
-        int size = (int) Math.round(((width / 100.0) * 60.0)-(132+64.0)-8);
+        int size = (int) Math.round(((width / 100.0) * 60.0)-(132+64.0)-16);
 
        // if (size > 300)
          textDescription.setWrappingWidth(size);

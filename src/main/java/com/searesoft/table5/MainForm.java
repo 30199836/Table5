@@ -8,15 +8,16 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.skin.ListViewSkin;
 import javafx.scene.control.skin.VirtualFlow;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -25,7 +26,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -69,6 +72,9 @@ public class MainForm extends BaseDialog {
 
     @FXML
     private VBox vboxOrderRoot;
+
+    @FXML
+    GridPane gridPaneOrderPrice;
 
     private MenuItemController firstMenuItem;
     private BaseMenuController overlay;
@@ -178,7 +184,7 @@ public class MainForm extends BaseDialog {
             }
 
             root.getChildren().add(overlay.root);
-            NodeFX.fadeIn(overlay.root);
+            FXUtils.fadeIn(overlay.root);
             overlay.updateSize(width, height);
             //remove the overlay if the user clicks outside the dialog
             overlay.root.setOnMouseClicked(event -> {
@@ -249,7 +255,7 @@ public class MainForm extends BaseDialog {
                         y = Math.min(1, y / height);
                         if (ovl.scrollPaneOptions.getVvalue() != y) {
                             ovl.scrollPaneOptions.setVvalue(y);
-                            NodeFX.pulsate(requiredChoiceHeaderControllers.get(0).root, 1);
+                            FXUtils.pulsate(requiredChoiceHeaderControllers.get(0).root, 1);
                         }
                     }
                     return;
@@ -286,7 +292,7 @@ public class MainForm extends BaseDialog {
                     loader2.setController(orderItemController);
                     loader2.load();
                     vboxOrderRoot.getChildren().add(orderItemController.root);
-                    NodeFX.pulsate(orderItemController.root, 3);
+                    FXUtils.pulsate(orderItemController.root, 1);
                     //    pane2.setStyle("-fx-background-color:" + (order.items.size() % 2 == 1 ? "#FFFFFF;" : "#CBCBCB;"));
                     orderItemController.init(orderItem);
                 } catch (IOException ex) {
@@ -302,7 +308,7 @@ public class MainForm extends BaseDialog {
                 loader.setController(optionHeaderController);
                 loader.load();
                 ovl.vboxOptionsRoot.getChildren().add(optionHeaderController.root);
-                NodeFX.fadeIn(optionHeaderController.root);
+                FXUtils.fadeIn(optionHeaderController.root);
                 optionHeaderController.init(menuItem);
                 if (optionIndex > -1) {
                     optionHeaderController.labelRequired.setOpacity(0);
@@ -318,7 +324,7 @@ public class MainForm extends BaseDialog {
                     loader.load();
                     optionController.radioButton.setToggleGroup(optionToggleGroup);
                     ovl.vboxOptionsRoot.getChildren().add(optionController.root);
-                    NodeFX.fadeIn(optionController.root);
+                    FXUtils.fadeIn(optionController.root);
                     optionController.init(option);
                     if (i == optionIndex) optionController.radioButton.setSelected(true);
                     int index = i;
@@ -340,7 +346,7 @@ public class MainForm extends BaseDialog {
                         loader.setController(choiceHeaderController);
                         loader.load();
                         ovl.vboxOptionsRoot.getChildren().add(choiceHeaderController.root);
-                        NodeFX.fadeIn(choiceHeaderController.root);
+                        FXUtils.fadeIn(choiceHeaderController.root);
                         choiceHeaderController.init(choice);
                         if (choiceHeaderController.choice().requiredCount() > 0) {
                             requiredChoiceHeaderControllers.add(choiceHeaderController);
@@ -386,7 +392,7 @@ public class MainForm extends BaseDialog {
 
                             }
                             ovl.vboxOptionsRoot.getChildren().add(choiceController.root);
-                            NodeFX.fadeIn(choiceController.root);
+                            FXUtils.fadeIn(choiceController.root);
                             choiceController.init(choice, choice.menuList().items().get(j), optionIndex);
                             choiceController.choice().selectedIndices().clear();
                         }
@@ -406,7 +412,7 @@ public class MainForm extends BaseDialog {
 
     private void closeOverlay() {
         if (overlay != null) {
-            NodeFX.fadeOut(overlay.root, root);
+            FXUtils.fadeOut(overlay.root, root);
             //    root.getChildren().remove(root.getChildren().indexOf(overlay.root));
             overlay = null;
         }
@@ -416,15 +422,15 @@ public class MainForm extends BaseDialog {
     private void updateOrderPrice() {
         order.calculatePrice();
         labelSubTotal.setText(String.format("£%.2f", order.price()));
-        double discount = order.price() / 100 * 20;
+        double discount = order.price() == 0 ? 0 : order.price() / 100 * 10;
         labelDiscount.setText(String.format("£%.2f", discount));
         labelTotal.setText(String.format("£%.2f", order.price() - discount));
     }
 
     @Override
     public void init() {
-        //make the order ScrollPane scroll to the bottom when an item is added to the order
-        // scrollPaneOrder.vvalueProperty().bind(vboxOrderRoot.heightProperty());
+
+        //used to make the order ScrollPane scroll to the bottom when an item is added to the order
         vboxOrderRoot.heightProperty().addListener(orderHeightChangeListener);
         //used to auto resize some gui elements
         stage.widthProperty().addListener(widthChangedListener);
@@ -510,7 +516,7 @@ public class MainForm extends BaseDialog {
                 double height = scrollPaneMenu.getContent().getBoundsInLocal().getHeight() - scrollPaneMenu.getHeight();
                 double y = headers[index].getBoundsInParent().getMinY();
                 scrollPaneMenu.setVvalue(y / height);
-                NodeFX.pulsate(headers[index],1);
+                FXUtils.pulsate(headers[index], 1);
             }
         });
 
@@ -575,19 +581,66 @@ public class MainForm extends BaseDialog {
 
 
         gridPaneCheckout.setOnMouseClicked(event -> {
-//            new Thread(() -> {
-//                introOverlay.startVideo();
-//                introOverlay.root.setVisible(true);
-//                while (introOverlay.root.getOpacity() < 1) {
-//                    try {
-//                        Thread.sleep(5);
-//                    } catch (InterruptedException e) {
-//                    }
-//                    introOverlay.root.setOpacity(introOverlay.root.getOpacity() + 0.01);
-//                }
-//            }).start();
-            introOverlay.startVideo();
-            NodeFX.fadeIn(introOverlay.root);
+            //    FXUtils.snapshot(vboxOrderRoot,"d:\\test.png");
+            try {
+                //Image image = SwingFXUtils.toFXImage(FXUtils.snapshot(vboxOrderRoot), null);
+
+                FXMLLoader loader = new FXMLLoader(App.class.getResource("checkout-overlay.fxml"));
+                CheckoutOverlayController ovl = new CheckoutOverlayController();
+                overlay = ovl;
+                loader.setController(ovl);
+                loader.load();
+                ovl.init(order);
+                Image image = SwingFXUtils.toFXImage(FXUtils.snapshot(vboxOrderRoot), null);
+                ovl.imageOrder.setImage(image);
+                ovl.imageOrder.setFitWidth(image.getWidth());
+                ovl.imageOrder.setFitHeight(image.getHeight());
+
+                image = SwingFXUtils.toFXImage(FXUtils.snapshot(gridPaneOrderPrice), null);
+                ovl.imagePrice.setImage(image);
+                ovl.imagePrice.setFitWidth(image.getWidth());
+                ovl.imagePrice.setFitHeight(image.getHeight());
+
+                root.getChildren().add(ovl.root);
+                overlay.updateSize(width, height);
+                FXUtils.fadeIn(ovl.root);
+                ovl.scrollPaneOrder.setPrefWidth(image.getWidth()+128);
+
+
+                overlay.root.setOnMouseClicked(event2 -> {
+                    if (overlay != null && root.getChildren().size() > 2) {
+                        if (event2.getPickResult().getIntersectedNode() == root.getChildren().get(root.getChildren().indexOf(overlay.root))) {
+                            closeOverlay();
+                        }
+                    }
+                });
+
+                //remove the overlay if the user clicks the close button (image)
+                overlay.imageClose.setOnMouseClicked(event2 -> {
+                    closeOverlay();
+                });
+
+                ovl.gridPanePrint.setOnMouseClicked(event2 -> {
+                    String desktopPath = Registry.readString(
+                            "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders",
+                            "Desktop");
+                    if (desktopPath == null) {
+                        MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.OrderID, "Error", "Unable to determine the Desktop folder location to save the receipt");
+                    } else {
+                        String filename = "Table5Order" + ovl.OrderID + ".png";
+                        FXUtils.snapshot(ovl.vboxOrderRoot, desktopPath + "\\" + filename);
+                   //     MessageBox.show(desktopPath + "\\"  + filename);
+                        MessageBox.show("\"" + filename + "\" was saved to your desktop.");
+                    }
+                    closeOverlay();
+                    introOverlay.startVideo();
+                    introOverlay.updateSize(width, height);
+                    FXUtils.fadeIn(introOverlay.root);
+                });
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         });
 
         try {
@@ -600,19 +653,11 @@ public class MainForm extends BaseDialog {
             introOverlay.updateSize(width, height);
 
             introOverlay.labelStart.setOnMouseClicked(event -> {
-//                new Thread(() -> {
-//                    while (introOverlay.root.getOpacity() > 0) {
-//                        try {
-//                            Thread.sleep(5);
-//                        } catch (InterruptedException e) {
-//                        }
-//                        introOverlay.root.setOpacity(introOverlay.root.getOpacity() - 0.01);
-//                    }
-//                    introOverlay.root.setVisible(false);
-//                    introOverlay.stopVideo();
-//                }).start();
+                order.items.clear();
+                vboxOrderRoot.getChildren().clear();
+                updateOrderPrice();
                 introOverlay.stopVideo();
-                NodeFX.fadeOut(introOverlay.root, true);
+                FXUtils.fadeOut(introOverlay.root, true);
             });
 
             introOverlay.imageAbout.setOnMouseClicked(event -> {
@@ -625,7 +670,8 @@ public class MainForm extends BaseDialog {
                     root.getChildren().add(overlay.root);
                     overlay.updateSize(width, height);
                     overlay.root.setOpacity(0);
-                    NodeFX.fadeIn(overlay.root);
+                    FXUtils.fadeIn(overlay.root);
+                    introOverlay.stopVideo();
 
                     overlay.imageClose.setOnMouseClicked(event2 -> {
                         closeOverlay();

@@ -67,5 +67,4 @@ public class Order {
             price += item.price;
         }
     }
-
 }

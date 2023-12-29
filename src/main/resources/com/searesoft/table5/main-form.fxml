@@ -142,12 +142,19 @@
                         <Insets bottom="1.0" left="5.0" right="5.0" />
                      </padding>
                           </GridPane>
-
-                                      <ScrollPane fx:id="scrollPaneOrder" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                              <content>
-                                  <VBox fx:id="vboxOrderRoot" style="-fx-background-color: white; -fx-border-color: black;" />
-                              </content>
-                          </ScrollPane>
+                  <VBox style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+      
+                                            <ScrollPane fx:id="scrollPaneOrder" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;">
+                                    <content>
+                                        <VBox fx:id="vboxOrderRoot" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" />
+                                    </content>
+                                </ScrollPane>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </GridPane.margin>
+                  </VBox>
                           <GridPane fx:id="gridPaneCheckout" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="3">
                               <columnConstraints>
                                   <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" />
@@ -166,84 +173,94 @@
                                   <Cursor fx:constant="HAND" />
                               </cursor>
                      <GridPane.margin>
-                        <Insets left="1.0" />
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </GridPane.margin>
                      <padding>
                         <Insets bottom="16.0" top="16.0" />
                      </padding>
                           </GridPane>
-                            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
-                                <columnConstraints>
-                                    <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="ALWAYS" />
-                                    <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="ALWAYS" />
-                                </columnConstraints>
-                                <rowConstraints>
-                        <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
-                        <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
-                        <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
-                                    <RowConstraints fillHeight="false" minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
-                                    <RowConstraints />
-                                </rowConstraints>
-                                <cursor>
-                                    <Cursor fx:constant="DEFAULT" />
-                                </cursor>
-                                <opaqueInsets>
-                                    <Insets />
-                                </opaqueInsets>
-                     <children>
-                        <Label text="Sub-Total:">
-                           <GridPane.margin>
-                              <Insets left="4.0" right="4.0" />
-                           </GridPane.margin>
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="10.0" layoutY="17.0" text="20% Discount:" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="4.0" right="4.0" />
-                           </GridPane.margin>
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="10.0" layoutY="47.0" text="Total:" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="4.0" right="4.0" />
-                           </GridPane.margin>
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="labelSubTotal" layoutX="10.0" layoutY="17.0" text="£0.00" GridPane.columnIndex="1">
-                           <GridPane.margin>
-                              <Insets left="4.0" right="4.0" />
-                           </GridPane.margin>
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="labelDiscount" layoutX="124.0" layoutY="17.0" text="£0.00" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="4.0" right="4.0" />
-                           </GridPane.margin>
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="labelTotal" layoutX="124.0" layoutY="47.0" text="£0.00" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets left="4.0" right="4.0" />
-                           </GridPane.margin>
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
+                  <GridPane style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
                      <GridPane.margin>
-                        <Insets bottom="1.0" left="1.0" right="1.0" />
+                        <Insets left="1.0" right="1.0" />
                      </GridPane.margin>
-                            </GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                                  <GridPane fx:id="gridPaneOrderPrice" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;">
+                                      <columnConstraints>
+                                          <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="ALWAYS" />
+                                          <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="ALWAYS" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                              <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
+                              <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
+                              <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="NEVER" />
+                                          <RowConstraints fillHeight="false" minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
+                                          <RowConstraints />
+                                      </rowConstraints>
+                                      <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                      </cursor>
+                                      <opaqueInsets>
+                                          <Insets />
+                                      </opaqueInsets>
+                           <children>
+                              <Label text="Sub-Total:">
+                                 <GridPane.margin>
+                                    <Insets left="4.0" right="4.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="17.0" text="10% Discount:" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="4.0" right="4.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="47.0" text="Total:" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="4.0" right="4.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelSubTotal" layoutX="10.0" layoutY="17.0" text="£0.00" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="4.0" right="10.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelDiscount" layoutX="124.0" layoutY="17.0" text="£0.00" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="4.0" right="10.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelTotal" layoutX="124.0" layoutY="47.0" text="£0.00" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="4.0" right="10.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                                  </GridPane>
+                     </children>
+                  </GridPane>
                     </children>
                 </GridPane>
             </children>

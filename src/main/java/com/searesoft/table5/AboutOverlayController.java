@@ -6,6 +6,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Border;
+import javafx.scene.layout.VBox;
 
 import java.awt.*;
 import java.io.IOException;
@@ -24,6 +25,8 @@ public class AboutOverlayController extends BaseMenuController {
     Hyperlink link;
     @FXML
     Label labelVersion;
+    @FXML
+    VBox dialogRoot;
 
     public void init(MenuItem menuItem) {
         try {
@@ -51,11 +54,11 @@ public class AboutOverlayController extends BaseMenuController {
      *
      * @param width  new width of the window
      * @param height new height of the window
+     * @param height new height of the window
      */
     @Override
     public void updateSize(double width, double height) {
-        //  double size = Math.round(Math.min(width, height) * 0.75);
-        //  image.setFitWidth(size);
-        // image.setFitHeight(size);
+     //   dialogRoot.setPrefWidth(width );
+     //   dialogRoot.setPrefHeight(height );
     }
 }

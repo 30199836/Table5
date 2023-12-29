@@ -1,15 +1,55 @@
 package com.searesoft.lib;
 
 import javafx.application.Platform;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Node;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Pane;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.util.concurrent.Semaphore;
 
 /**
- * Some simple fade effects that can be used on any JAVAFX node
+ * JavaFX node based stuff
  */
-public class NodeFX {
+public class FXUtils {
+    public static BufferedImage snapshot(Node node) {
+        SnapshotParameters param = new SnapshotParameters();
+        param.setDepthBuffer(true);
+        WritableImage snapshot = node.snapshot(param, null);
+        BufferedImage tempImg = SwingFXUtils.fromFXImage(snapshot, null);
+        BufferedImage img = null;
+        byte[] imageInByte;
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(tempImg, "png", baos);
+            baos.flush();
+            imageInByte = baos.toByteArray();
+            baos.close();
+            InputStream in = new ByteArrayInputStream(imageInByte);
+            img = ImageIO.read(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return img;
+    }
+
+    public static void snapshot(Node node,String filename) {
+        SnapshotParameters param = new SnapshotParameters();
+        param.setDepthBuffer(true);
+        WritableImage snapshot = node.snapshot(param, null);
+        BufferedImage tempImg = SwingFXUtils.fromFXImage(snapshot, null);
+        try {
+            File outputFile = new File(filename);
+            ImageIO.write(tempImg, "png", outputFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void fadeIn(Node node) {
         node.setOpacity(0);
         node.setVisible(true);
