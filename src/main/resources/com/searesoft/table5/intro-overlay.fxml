@@ -16,39 +16,44 @@
         <RowConstraints fillHeight="false" maxHeight="605.0" minHeight="324.0" percentHeight="100.0" prefHeight="605.0" valignment="CENTER" vgrow="ALWAYS" />
     </rowConstraints>
     <children>
-        <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+        <VBox fx:id="vboxContentRoot" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
             <children>
-                <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
-                    <columnConstraints>
-                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" minHeight="-Infinity" valignment="CENTER" vgrow="ALWAYS" />
-                  <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
-                  <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
-                    </rowConstraints>
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                    <children>
-                  <MediaView fx:id="videoLogo" fitHeight="256.0" fitWidth="256.0" />
-                  <Label fx:id="labelStart" alignment="CENTER" style="-fx-background-color: white;" text="Start a New Order" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="16.0" left="32.0" right="32.0" top="16.0" />
-                     </padding>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <GridPane.margin>
-                        <Insets top="96.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <MediaView fx:id="videoDiscount" fitHeight="140.0" fitWidth="140.0" GridPane.rowIndex="1" />
-                    </children>
-                </GridPane>
+            <GridPane fx:id="gridPaneLogo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <MediaView fx:id="mediaViewLogo" fitHeight="100.0" fitWidth="200.0" />
+               </children>
+            </GridPane>
+            <GridPane fx:id="gridPaneDiscount" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <MediaView fx:id="mediaViewDiscount" fitHeight="100.0" fitWidth="200.0" />
+               </children>
+            </GridPane>
+            <Label fx:id="labelStart" alignment="CENTER" style="-fx-background-color: white;" text="Start a New Order">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="16.0" left="32.0" right="32.0" top="16.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
             </children>
             <GridPane.margin>
                 <Insets />

@@ -34,29 +34,38 @@ public class CheckoutOverlayController extends BaseMenuController {
     @FXML
     ScrollPane scrollPaneOrder;
     @FXML
-    VBox vboxOrderRoot;
-
+    VBox vBoxOrderRoot;
+    //
+//    @FXML
+//    VBox vBoxPrice;
+//
+//    @FXML
+//    VBox vBoxProducts;
+//
+//    @FXML
+//    VBox vBoxQuantity;
+//
+//    @FXML
+//    VBox vBoxTotal;
     @FXML
-    VBox vboxPrice;
-
+    VBox vBoxDetails;
     @FXML
-    VBox vboxProducts;
-
-    @FXML
-    VBox vboxQuantity;
-
-    @FXML
-    VBox vboxTotal;
+    VBox vBoxLogo;
 
     @FXML
     ImageView imageOrder;
     @FXML
     ImageView imagePrice;
+    @FXML
+    GridPane gridPanePrint;
 
-    @FXML GridPane gridPanePrint;
+    private String orderID;
 
-    public String OrderID;
+    public String orderID() {
+        return orderID;
+    }
 
+    private Order order;
 
     /**
      * Initialize the controller
@@ -64,33 +73,29 @@ public class CheckoutOverlayController extends BaseMenuController {
      * @param order the order associated with the controller
      */
     public void init(Order order) {
-        OrderID = String.valueOf(Math.round(100 + (Math.random() * 20)));
-        labelOrderID.setText("Order ID: "+OrderID);
-        labelTime.setText("Time ordered: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss")));
-
-
-//        //display the name, description and price
-//        labelName.setText(menuItem.name());
-//        textDescription.setText(menuItem.description());
-//        setLabelBasePrice(labelBasePrice);
-//        //use the plus/minus buttons as a simple spinner for the item count
-//        imageMinus.setOnMouseClicked(event -> {
-//            int val = Integer.parseInt(labelCount.getText());
-//            if (val > 1) {
-//                val--;
-//                labelCount.setText(String.valueOf(val));
-//                updateChoices();
-//            }
-//        });
-//        imagePlus.setOnMouseClicked(event -> {
-//            int val = Integer.parseInt(labelCount.getText());
-//            if (val < 9) {
-//                val++;
-//                labelCount.setText(String.valueOf(val));
-//                updateChoices();
-//            }
-//        });
+        this.order = order;
+        vBoxLogo.managedProperty().bind(vBoxLogo.visibleProperty());
+        vBoxLogo.setVisible(false);
+        vBoxDetails.managedProperty().bind(vBoxDetails.visibleProperty());
+        vBoxDetails.setVisible(false);
     }
+
+    public void updateDetails() {
+        orderID = String.valueOf(order.nextID());
+        labelOrderID.setText("Order ID: " + orderID);
+        labelTime.setText("Time ordered: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+    }
+
+    public void hideDetails() {
+        vBoxLogo.setVisible(false);
+        vBoxDetails.setVisible(false);
+    }
+
+    public void showDetails() {
+        vBoxLogo.setVisible(true);
+        vBoxDetails.setVisible(true);
+    }
+
 
     /**
      * Update the dialog size
@@ -100,7 +105,7 @@ public class CheckoutOverlayController extends BaseMenuController {
      */
     @Override
     public void updateSize(double width, double height) {
-       // dialogRoot.setPrefWidth(width * 0.75);
+        // dialogRoot.setPrefWidth(width * 0.75);
         dialogRoot.setPrefHeight(height * 0.75);
     }
 }

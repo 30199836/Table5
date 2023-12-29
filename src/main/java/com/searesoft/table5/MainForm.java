@@ -187,42 +187,10 @@ public class MainForm extends BaseDialog {
             FXUtils.fadeIn(overlay.root);
             overlay.updateSize(width, height);
             //remove the overlay if the user clicks outside the dialog
-            overlay.root.setOnMouseClicked(event -> {
-                if (overlay != null && root.getChildren().size() > 2) {//root.getChildren().remove(1);
-                    if (event.getPickResult().getIntersectedNode() == root.getChildren().get(root.getChildren().indexOf(overlay.root))) {
-                        closeOverlay();
-                    }
-                }
-            });
-
-
-            //remove the overlay if the user clicks the close button (image)
-            overlay.imageClose.setOnMouseClicked(event -> {
-                //if (root.getChildren().size() > 1) {
-                closeOverlay();
-                //  }
-            });
+            setOverlayCloseEvents();
 
 
             if (!isImageOverlay) {
-                //   AddOverlayController ovl = ((AddOverlayController) overlay);
-//                ovl.imageMinus.setOnMouseClicked(event -> {
-//                    int val = Integer.parseInt(ovl.labelCount.getText());
-//                    if (val > 1) {
-//                        val--;
-//                        ovl.labelCount.setText(String.valueOf(val));
-//                        ovl.updateChoices();
-//                    }
-//                });
-//                ovl.imagePlus.setOnMouseClicked(event -> {
-//                    int val = Integer.parseInt(ovl.labelCount.getText());
-//                    if (val < 9) {
-//                        val++;
-//                        ovl.labelCount.setText(String.valueOf(val));
-//                        ovl.updateChoices();
-//                    }
-//                });
-                //  fillOverlayForOption(ovl.menuItem().options().size() > 1 ? -1 : 0);
                 fillOverlayForOption(overlay.menuItem().options().size() > 1 ? -1 : 0);
             }
         } catch (IOException ex) {
@@ -255,11 +223,10 @@ public class MainForm extends BaseDialog {
                         y = Math.min(1, y / height);
                         if (ovl.scrollPaneOptions.getVvalue() != y) {
                             ovl.scrollPaneOptions.setVvalue(y);
-                            FXUtils.pulsate(requiredChoiceHeaderControllers.get(0).root, 1);
+                            FXUtils.pulsate(requiredChoiceHeaderControllers.get(0).root, 2, false);
                         }
                     }
                     return;
-
                 }
                 orderVScrollPos = scrollPaneOrder.getVvalue();
                 Order.Item orderItem = order.new Item(order);
@@ -292,7 +259,7 @@ public class MainForm extends BaseDialog {
                     loader2.setController(orderItemController);
                     loader2.load();
                     vboxOrderRoot.getChildren().add(orderItemController.root);
-                    FXUtils.pulsate(orderItemController.root, 1);
+                    FXUtils.pulsate(orderItemController.root, 2, true);
                     //    pane2.setStyle("-fx-background-color:" + (order.items.size() % 2 == 1 ? "#FFFFFF;" : "#CBCBCB;"));
                     orderItemController.init(orderItem);
                 } catch (IOException ex) {
@@ -308,7 +275,7 @@ public class MainForm extends BaseDialog {
                 loader.setController(optionHeaderController);
                 loader.load();
                 ovl.vboxOptionsRoot.getChildren().add(optionHeaderController.root);
-                FXUtils.fadeIn(optionHeaderController.root);
+                // FXUtils.fadeIn(optionHeaderController.root);
                 optionHeaderController.init(menuItem);
                 if (optionIndex > -1) {
                     optionHeaderController.labelRequired.setOpacity(0);
@@ -324,7 +291,7 @@ public class MainForm extends BaseDialog {
                     loader.load();
                     optionController.radioButton.setToggleGroup(optionToggleGroup);
                     ovl.vboxOptionsRoot.getChildren().add(optionController.root);
-                    FXUtils.fadeIn(optionController.root);
+                    //   FXUtils.fadeIn(optionController.root);
                     optionController.init(option);
                     if (i == optionIndex) optionController.radioButton.setSelected(true);
                     int index = i;
@@ -581,22 +548,21 @@ public class MainForm extends BaseDialog {
 
 
         gridPaneCheckout.setOnMouseClicked(event -> {
-            //    FXUtils.snapshot(vboxOrderRoot,"d:\\test.png");
             try {
-                //Image image = SwingFXUtils.toFXImage(FXUtils.snapshot(vboxOrderRoot), null);
-
                 FXMLLoader loader = new FXMLLoader(App.class.getResource("checkout-overlay.fxml"));
                 CheckoutOverlayController ovl = new CheckoutOverlayController();
                 overlay = ovl;
                 loader.setController(ovl);
                 loader.load();
                 ovl.init(order);
-                Image image = SwingFXUtils.toFXImage(FXUtils.snapshot(vboxOrderRoot), null);
+                //if the user quickly clicked checkout after adding the order item it might still be pulsating
+                FXUtils.setOpacityTree(vboxOrderRoot, 1);
+                Image image = FXUtils.snapshot(vboxOrderRoot);
                 ovl.imageOrder.setImage(image);
                 ovl.imageOrder.setFitWidth(image.getWidth());
                 ovl.imageOrder.setFitHeight(image.getHeight());
 
-                image = SwingFXUtils.toFXImage(FXUtils.snapshot(gridPaneOrderPrice), null);
+                image = FXUtils.snapshot(gridPaneOrderPrice);
                 ovl.imagePrice.setImage(image);
                 ovl.imagePrice.setFitWidth(image.getWidth());
                 ovl.imagePrice.setFitHeight(image.getHeight());
@@ -604,38 +570,38 @@ public class MainForm extends BaseDialog {
                 root.getChildren().add(ovl.root);
                 overlay.updateSize(width, height);
                 FXUtils.fadeIn(ovl.root);
-                ovl.scrollPaneOrder.setPrefWidth(image.getWidth()+128);
+                ovl.scrollPaneOrder.setPrefWidth(image.getWidth() + 128);
 
-
-                overlay.root.setOnMouseClicked(event2 -> {
-                    if (overlay != null && root.getChildren().size() > 2) {
-                        if (event2.getPickResult().getIntersectedNode() == root.getChildren().get(root.getChildren().indexOf(overlay.root))) {
-                            closeOverlay();
-                        }
-                    }
-                });
-
-                //remove the overlay if the user clicks the close button (image)
-                overlay.imageClose.setOnMouseClicked(event2 -> {
-                    closeOverlay();
-                });
+                setOverlayCloseEvents();
 
                 ovl.gridPanePrint.setOnMouseClicked(event2 -> {
-                    String desktopPath = Registry.readString(
-                            "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders",
-                            "Desktop");
-                    if (desktopPath == null) {
-                        MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.OrderID, "Error", "Unable to determine the Desktop folder location to save the receipt");
-                    } else {
-                        String filename = "Table5Order" + ovl.OrderID + ".png";
-                        FXUtils.snapshot(ovl.vboxOrderRoot, desktopPath + "\\" + filename);
-                   //     MessageBox.show(desktopPath + "\\"  + filename);
-                        MessageBox.show("\"" + filename + "\" was saved to your desktop.");
+                    try {
+                        ovl.updateDetails();
+                        String desktopPath = Registry.readString(
+                                "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders",
+                                "Desktop");
+                        if (desktopPath == null) {
+                            MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.orderID(), "Error", "Unable to determine the Desktop folder location to save the receipt");
+                        } else {
+                            String filename = "Table5Order" + ovl.orderID() + ".png";
+                            ovl.showDetails();
+                            try {
+                                FXUtils.snapshot(ovl.vBoxOrderRoot, desktopPath + "\\" + filename);
+                            } finally {
+                                ovl.hideDetails();
+                            }
+                            //     MessageBox.show(desktopPath + "\\"  + filename);
+                            MessageBox.show("\"" + filename + "\" was saved to your desktop.");
+                        }
+                    } catch (Exception e) {
+                        MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.orderID(), "Error", "An error occurred");
+                        throw new RuntimeException(e);
+                    } finally {
+                        closeOverlay();
+                        introOverlay.startVideo();
+                        introOverlay.updateSize(width, height);
+                        FXUtils.fadeIn(introOverlay.root);
                     }
-                    closeOverlay();
-                    introOverlay.startVideo();
-                    introOverlay.updateSize(width, height);
-                    FXUtils.fadeIn(introOverlay.root);
                 });
 
             } catch (Exception e) {
@@ -690,6 +656,29 @@ public class MainForm extends BaseDialog {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void setOverlayCloseEvents() {
+        //workaround for mouse up event being classed as a click
+        //When you scroll the ScrollPane and release the mouse button outside the dialog, that's not a click!
+        overlay.root.setOnMousePressed(event2 -> {
+            if (overlay != null) overlay.mouseDownNode = event2.getPickResult().getIntersectedNode();
+        });
+
+        //remove the overlay if the user clicks outside the dialog
+        overlay.root.setOnMouseClicked(event2 -> {
+            if (overlay != null && root.getChildren().size() > 2) {
+                if ((event2.getPickResult().getIntersectedNode() == overlay.mouseDownNode) &&
+                        overlay.mouseDownNode == root.getChildren().get(root.getChildren().indexOf(overlay.root))) {
+                    closeOverlay();
+                }
+            }
+        });
+
+        //remove the overlay if the user clicks the close button (image)
+        overlay.imageClose.setOnMouseClicked(event2 -> {
+            closeOverlay();
+        });
     }
 
 

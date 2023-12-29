@@ -21,4 +21,16 @@ public class StrUtils {
         }
         return res & 0x7FFFFFFF;
     }
+
+    public static String extractFileExtension(String filename) {
+        int index = filename.lastIndexOf('.');
+        if (index > 0) return filename.substring(index + 1);
+        return null;
+    }
+
+    public static String changeFileExtension(String filename, String newExt) {
+        int index = filename.lastIndexOf('.');
+        if (index == 0) return filename + '.' + newExt;
+        return filename.substring(0, index - 1) + '.' + newExt;
+    }
 }

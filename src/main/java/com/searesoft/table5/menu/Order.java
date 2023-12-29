@@ -1,5 +1,11 @@
 package com.searesoft.table5.menu;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 /**
@@ -58,6 +64,7 @@ public class Order {
     //list of ordered items
     public final ArrayList<Item> items = new ArrayList<>();
 
+
     /**
      * Calculate and set the total price of all the items
      */
@@ -66,5 +73,26 @@ public class Order {
         for (Item item : items) {
             price += item.price;
         }
+    }
+
+    private int id = -1;
+    private String idFilename = System.getProperty("user.dir") + "\\id.txt";
+
+    public int nextID() {
+        if (id == -1) {
+            try {
+                id = Integer.parseInt(new String(Files.readAllBytes(Paths.get(idFilename)), StandardCharsets.UTF_8));
+            } catch (Exception e) {
+                //doesn't really matter if this is persistent, just a novelty
+                id = 0;
+            }
+        }
+        id++;
+        try {
+            Files.writeString(Paths.get(idFilename), String.valueOf(id), StandardOpenOption.CREATE);
+        } catch (Exception e) {
+            //doesn't really matter if this is persistent, just a novelty
+        }
+        return id;
     }
 }

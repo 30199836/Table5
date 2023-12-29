@@ -2,6 +2,7 @@ package com.searesoft.table5;
 
 import com.searesoft.table5.menu.MenuItem;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,6 +21,9 @@ public abstract class BaseMenuController {
     @FXML
     Label labelName;
     protected MenuItem menuItem;
+
+
+    public Node mouseDownNode = null;
 
     /**
      * Read only access to menuItem

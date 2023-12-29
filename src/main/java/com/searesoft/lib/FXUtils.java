@@ -3,8 +3,9 @@ package com.searesoft.lib;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.SnapshotParameters;
-import javafx.scene.image.WritableImage;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 
 import javax.imageio.ImageIO;
@@ -16,38 +17,20 @@ import java.util.concurrent.Semaphore;
  * JavaFX node based stuff
  */
 public class FXUtils {
-    public static BufferedImage snapshot(Node node) {
+    public static Image snapshot(Node node) {
         SnapshotParameters param = new SnapshotParameters();
         param.setDepthBuffer(true);
-        WritableImage snapshot = node.snapshot(param, null);
-        BufferedImage tempImg = SwingFXUtils.fromFXImage(snapshot, null);
-        BufferedImage img = null;
-        byte[] imageInByte;
-        try {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(tempImg, "png", baos);
-            baos.flush();
-            imageInByte = baos.toByteArray();
-            baos.close();
-            InputStream in = new ByteArrayInputStream(imageInByte);
-            img = ImageIO.read(in);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return img;
+        return node.snapshot(param, null);
     }
 
-    public static void snapshot(Node node,String filename) {
-        SnapshotParameters param = new SnapshotParameters();
-        param.setDepthBuffer(true);
-        WritableImage snapshot = node.snapshot(param, null);
-        BufferedImage tempImg = SwingFXUtils.fromFXImage(snapshot, null);
-        try {
-            File outputFile = new File(filename);
-            ImageIO.write(tempImg, "png", outputFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static boolean snapshot(Node node, String filename) throws IOException {
+        String formatName = StrUtils.extractFileExtension(filename);
+        if (formatName == null) return false;
+        Image fxImg = snapshot(node);
+        //remove the alpha channel so we can support jpeg, it's not needed anyway.
+        BufferedImage img = new BufferedImage((int) fxImg.getWidth(), (int) fxImg.getHeight(), BufferedImage.TYPE_INT_RGB);
+        SwingFXUtils.fromFXImage(fxImg, img);
+        return ImageIO.write(img, formatName, new File(filename));
     }
 
     public static void fadeIn(Node node) {
@@ -59,21 +42,15 @@ public class FXUtils {
     }
 
     public static void fadeOut(Node node, boolean hide) {
-        new Thread(() -> {
-            fadeOutBlocking(node, hide, null);
-        }).start();
+        fadeOut(node, hide, null);
     }
 
     public static void fadeOut(Node node, Pane parent) {
-        new Thread(() -> {
-            fadeOutBlocking(node, false, parent);
-        }).start();
+        fadeOut(node, false, parent);
     }
 
     public static void fadeOut(Node node) {
-        new Thread(() -> {
-            fadeOutBlocking(node, false, null);
-        }).start();
+        fadeOut(node, false, null);
     }
 
     public static void fadeOut(Node node, boolean hide, Pane parent) {
@@ -83,8 +60,14 @@ public class FXUtils {
     }
 
     public static void pulsate(Node node, int count) {
+        pulsate(node, count, false);
+    }
+
+    public static void pulsate(Node node, int count, boolean fadeIn) {
+        if (fadeIn) node.setOpacity(0);
         node.setVisible(true);
         new Thread(() -> {
+            if (fadeIn) fadeInBlocking(node);
             for (int i = 0; i < count; i++) {
                 fadeOutBlocking(node, false, null);
                 fadeInBlocking(node);
@@ -153,5 +136,14 @@ public class FXUtils {
         });
     }
 
-
+    public static void setOpacityTree(Parent parent, double opacity) {
+        parent.setOpacity(opacity);
+        for (Node child : parent.getChildrenUnmodifiable()) {
+            if (child instanceof Parent) {
+                setOpacityTree((Parent) child, opacity);
+            } else {
+                child.setOpacity(opacity);
+            }
+        }
+    }
 }
