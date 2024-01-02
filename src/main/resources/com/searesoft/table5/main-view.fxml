@@ -292,6 +292,9 @@
                            <image>
                               <Image url="@../../../images/Table5-black256.png" />
                            </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
                         </ImageView>
                         <Label text="Table5">
                            <HBox.margin>
@@ -302,6 +305,9 @@
                            </font>
                         </Label>
                      </children>
+                     <GridPane.margin>
+                        <Insets top="1.0" />
+                     </GridPane.margin>
                   </HBox>
                     </children>
                 </GridPane>

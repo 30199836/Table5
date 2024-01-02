@@ -161,16 +161,26 @@
                                                 <VBox.margin>
                                                    <Insets bottom="4.0" top="4.0" />
                                                 </VBox.margin></Separator>
-                                                            <Label text="Table5">
-                                                                <font>
-                                                                    <Font name="System Bold" size="24.0" />
-                                                                </font>
-                                                            </Label>
-                                                            <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="NEVER">
-                                                                <image>
-                                                                    <Image url="@../../../images/Table5-black256.png" />
-                                                                </image>
-                                                            </ImageView>
+                                             <HBox alignment="CENTER" VBox.vgrow="NEVER">
+                                                <children>
+                                                                  <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                                                                      <image>
+                                                                          <Image url="@../../../images/Table5-black256.png" />
+                                                                      </image>
+                                                                  </ImageView>
+                                                                  <Label text="Table5">
+                                                                      <font>
+                                                                          <Font name="System Bold" size="36.0" />
+                                                                      </font>
+                                                      <padding>
+                                                         <Insets left="16.0" />
+                                                      </padding>
+                                                                  </Label>
+                                                </children>
+                                                <VBox.margin>
+                                                   <Insets top="8.0" />
+                                                </VBox.margin>
+                                             </HBox>
                                                             <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" text="Please proceed to the designated waiting area">
                                                                 <font>
                                                                     <Font name="System Bold" size="14.0" />
