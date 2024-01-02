@@ -14,13 +14,13 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 
 /**
- * Controller for the Add/Edit overlay dialog
+ * Controller for the Add overlay dialog
  */
 public class AddOverlayController extends BaseMenuController {
     @FXML
     GridPane root;
     @FXML
-    VBox dialogRoot;
+    VBox vBoxDialogRoot;
     @FXML
     Text textDescription;
     @FXML
@@ -41,7 +41,6 @@ public class AddOverlayController extends BaseMenuController {
     Label labelAdd;
     @FXML
     ScrollPane scrollPaneOptions;
-
 
 
     /**
@@ -80,12 +79,12 @@ public class AddOverlayController extends BaseMenuController {
      */
     public void updateChoices() {
         double price = 0;
-        if (menuItem.selectedIndex() == -1) {
+        if (menuItem.optionIndex() == -1) {
             //no option selected
             labelAdd.setText("Select an option");
         } else {
             int count = 0;
-            MenuOption option = menuItem.options().get(menuItem.selectedIndex());
+            MenuOption option = menuItem.options().get(menuItem.optionIndex());
             //count how many required choices there are
             for (MenuChoice choice : option.choices()) {
                 if (choice.selectedIndices().size() < choice.requiredCount()) count++;
@@ -106,8 +105,8 @@ public class AddOverlayController extends BaseMenuController {
             for (MenuChoice choice : option.choices()) {
                 for (int i = 0; i < choice.selectedIndices().size(); i++) {
                     ArrayList<Double> prices = choice.menuList().items().get(choice.selectedIndices().get(i)).prices();
-                    if (menuItem.selectedIndex() < prices.size()) {
-                        price += prices.get(menuItem.selectedIndex());
+                    if (menuItem.optionIndex() < prices.size()) {
+                        price += prices.get(menuItem.optionIndex());
                     }
                 }
             }
@@ -117,19 +116,20 @@ public class AddOverlayController extends BaseMenuController {
         //display the price with all the options added
         labelPrice.setText(String.format("£%.2f", price));
     }
+
     /**
      * Update the dialog size
      *
-     * @param width new width of the window
+     * @param width  new width of the window
      * @param height new height of the window
      */
     @Override
     public void updateSize(double width, double height) {
-        dialogRoot.setPrefWidth(width * 0.5);
+        vBoxDialogRoot.setPrefWidth(width * 0.5);
         if (vboxOptionsRoot.getChildren().size() > 1) {
-            dialogRoot.setPrefHeight(height * 0.75);
+            vBoxDialogRoot.setPrefHeight(height * 0.75);
         } else {
-            dialogRoot.setPrefHeight(220);
+            vBoxDialogRoot.setPrefHeight(220);
         }
     }
 }

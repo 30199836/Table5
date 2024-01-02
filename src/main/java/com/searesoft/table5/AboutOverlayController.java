@@ -26,7 +26,7 @@ public class AboutOverlayController extends BaseMenuController {
     @FXML
     Label labelVersion;
     @FXML
-    VBox dialogRoot;
+    VBox vBoxDialogRoot;
 
     public void init(MenuItem menuItem) {
         try {

@@ -1,20 +1,16 @@
 package com.searesoft.table5;
 
-import com.searesoft.table5.menu.MenuOption;
 import com.searesoft.table5.menu.Order;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
 
 /**
- * Controller that handles an item in the order menu
+ * Controller for each Order Item
  */
 public class OrderItemController {
     @FXML
@@ -31,29 +27,43 @@ public class OrderItemController {
     VBox vboxOrderRoot;
     @FXML
     GridPane gridPaneSeparator;
-    Order.Item item;
+    @FXML
+    GridPane gridPaneDetails;
+    private Order.Item orderItem;
+
+    public Order.Item orderItem() {
+        return orderItem;
+    }
+
+    private boolean separatorHidden;
 
     /**
      * Initialize the controller
      *
-     * @param item the item associated with this controller
+     * @param item the order item associated with this controller
      */
     public void init(Order.Item item) {
-        this.item = item;
+        gridPaneDetails.managedProperty().bind(gridPaneDetails.visibleProperty());
+        gridPaneSeparator.managedProperty().bind(gridPaneSeparator.visibleProperty());
+
+        this.orderItem = item;
         //display the basic info, name, price and count
         labelName.setText(item.name);
         labelPrice.setText(String.format("£%.2f", item.price));
         labelCount.setText(String.format("%dx", item.count));
 
-        //remove any exisiting option and choices (if the item was edited)
+        //remove any existing option and choices (if the item was edited)
         for (int i = vboxOrderRoot.getChildren().size() - 1; i > 1; i--) {
             vboxOrderRoot.getChildren().remove(i);
         }
 
         //don't show the separator at the top
-        if (item.order().items.size() == 1) {
-            vboxOrderRoot.getChildren().remove(gridPaneSeparator);
-          //  separator.setOpacity(0);
+        separatorHidden = item.order().items.size() == 1;
+        if (separatorHidden) {
+            gridPaneSeparator.setVisible(false);
+
+           //vboxOrderRoot.getChildren().remove(gridPaneSeparator);
+            //  separator.setOpacity(0);
         }
 
         Label label;
@@ -88,5 +98,21 @@ public class OrderItemController {
                 label.setFont(Font.font(14));
             }
         }
+    }
+
+    /**
+     * Show the details pane
+     */
+    public void showDetails(){
+        gridPaneDetails.setVisible(true);
+        if (!separatorHidden) gridPaneSeparator.setVisible(true);
+    }
+
+    /**
+     * Hide the details pane when taking a snapshot
+     */
+    public void hideDetails(){
+        gridPaneDetails.setVisible(false);
+        if (!separatorHidden) gridPaneSeparator.setVisible(false);
     }
 }

@@ -15,7 +15,7 @@
         <RowConstraints fillHeight="false" percentHeight="100.0" valignment="CENTER" vgrow="NEVER" />
     </rowConstraints>
     <children>
-        <VBox fx:id="dialogRoot" alignment="CENTER" maxHeight="720.0" maxWidth="1.7976931348623157E308" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <VBox fx:id="vBoxDialogRoot" alignment="CENTER" maxHeight="720.0" maxWidth="1.7976931348623157E308" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
             <children>
                 <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" VBox.vgrow="NEVER">
                     <columnConstraints>
@@ -64,7 +64,7 @@
                     </rowConstraints>
                     <children>
 
-                        <ScrollPane fx:id="scrollPaneOrder" fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: transparent;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                        <ScrollPane fx:id="scrollPaneOrder" fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: white;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                             <content>
                                 <VBox fx:id="vBoxOrderRoot" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;">
                                     <children>
@@ -213,7 +213,7 @@
                         </ScrollPane>
                     </children>
                 </GridPane>
-                <GridPane fx:id="gridPanePrint" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black; -fx-border-color: black;" VBox.vgrow="NEVER">
+                <GridPane fx:id="gridPaneConfirm" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black; -fx-border-color: black;" VBox.vgrow="NEVER">
                     <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>

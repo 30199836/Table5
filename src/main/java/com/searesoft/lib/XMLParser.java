@@ -9,6 +9,7 @@ import static com.searesoft.lib.ByRef.StringRef;
 /**
  * XML parser converted from my original Delphi code
  * I couldn't get any standard libraries to work reliably, so I decided to use my own code.
+ * I wasted 2 days trying before I just converted this and had it up and running within an hour.
  * This Java version only contains the code to read XML, there's no write methods.
  */
 public class XMLParser {

@@ -10,7 +10,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.layout.GridPane;
 
 /**
- * Controller for each add/edit overlay choice
+ * Controller for each Menu Choice
  */
 public class ChoiceController {
     @FXML
@@ -32,7 +32,6 @@ public class ChoiceController {
     public MenuChoice choice() {
         return choice;
     }
-
 
     private MenuListItem listItem;
 
@@ -59,8 +58,8 @@ public class ChoiceController {
     /**
      * Initialize the controller
      *
-     * @param choice the choice associated with this controller
-     * @param listItem the listItem associated with this controller
+     * @param choice     the choice associated with this controller
+     * @param listItem   the listItem associated with this controller
      * @param priceIndex the priceIndex used by this controller
      */
     public void init(MenuChoice choice, MenuListItem listItem, int priceIndex) {

@@ -37,7 +37,15 @@ public class FXUtils {
         node.setOpacity(0);
         node.setVisible(true);
         new Thread(() -> {
-            fadeInBlocking(node);
+            fadeInBlocking(node,1);
+        }).start();
+    }
+
+    public static void fadeIn(Node node ,double opacity) {
+        node.setOpacity(0);
+        node.setVisible(true);
+        new Thread(() -> {
+            fadeInBlocking(node,opacity);
         }).start();
     }
 
@@ -67,21 +75,21 @@ public class FXUtils {
         if (fadeIn) node.setOpacity(0);
         node.setVisible(true);
         new Thread(() -> {
-            if (fadeIn) fadeInBlocking(node);
+            if (fadeIn) fadeInBlocking(node,1);
             for (int i = 0; i < count; i++) {
                 fadeOutBlocking(node, false, null);
-                fadeInBlocking(node);
+                fadeInBlocking(node,1);
             }
         }).start();
     }
 
-    private static void fadeInBlocking(Node node) {
-        while (node.getOpacity() < 1) {
+    private static void fadeInBlocking(Node node,double opacity) {
+        while (node.getOpacity() < opacity) {
             try {
                 Thread.sleep(5);
             } catch (InterruptedException e) {
                 Platform.runLater(() -> {
-                    node.setOpacity(1);
+                    node.setOpacity(opacity);
                 });
                 return;
             }
@@ -95,7 +103,7 @@ public class FXUtils {
             } catch (InterruptedException e) {
                 semaphore.release();
                 Platform.runLater(() -> {
-                    node.setOpacity(1);
+                    node.setOpacity(opacity);
                 });
                 return;
             }

@@ -11,6 +11,9 @@ import javafx.scene.layout.GridPane;
 
 import java.io.InputStream;
 
+/**
+ * Controller for each Menu Option
+ */
 public class OptionController {
     @FXML
     RadioButton radioButton;
@@ -20,10 +23,20 @@ public class OptionController {
     GridPane root;
     private MenuOption option;
 
+    /**
+     * Read access to option
+     *
+     * @return the MenuOption associated with this controller
+     */
     public MenuOption option() {
         return option;
     }
 
+    /**
+     * Initialize the controller
+     *
+     * @param option the MenuOption associated with this controller
+     */
     public void init(MenuOption option) {
         this.option = option;
         radioButton.setText(option.name());

@@ -15,6 +15,8 @@ public class MenuChoice {
     private String name = "";
     private int hash = 0;
     private int requiredCount = 0;
+    private int allowedCount = 0;
+
     //  private boolean required = false;
     private ArrayList<Integer> selectedIndices = new ArrayList<>();
 
@@ -83,6 +85,15 @@ public class MenuChoice {
     }
 
     /**
+     * Read access to allowedCount
+     *
+     * @return The number of selections that are allowed for this choice
+     */
+    public int allowedCount() {
+        return allowedCount;
+    }
+
+    /**
      * Constructor
      *
      * @param owner the owner menu option
@@ -104,6 +115,7 @@ public class MenuChoice {
         this.owner = owner;
         menuList = menuChoice.menuList;
         requiredCount = menuChoice.requiredCount;
+        allowedCount = menuChoice.allowedCount;
         // selectedIndices.addAll(menuChoice.selectedIndices);
     }
 
@@ -116,6 +128,9 @@ public class MenuChoice {
         //set the required count if it exists
         XMLParser.XMLValue value = tag.valueFromName("requiredCount");
         if (value != null) requiredCount = Integer.parseInt(value.text());
+        //set the allowed count if it exists
+        value = tag.valueFromName("allowedCount");
+        if (value != null) allowedCount = Integer.parseInt(value.text());
         //set the menu list from the owner Menu
         value = tag.valueFromName("menuList");
         if (value != null) menuList = owner().owner().owner().owner().menuListFromName(value.text());

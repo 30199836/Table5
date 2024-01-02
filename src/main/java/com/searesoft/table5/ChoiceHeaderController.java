@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 /**
- * Controller for the add/edit overlay choice header
+ * Controller for the Menu Choice Header
  */
 public class ChoiceHeaderController {
     @FXML
@@ -35,7 +35,11 @@ public class ChoiceHeaderController {
     public void init(MenuChoice choice) {
         this.choice = choice;
         //display the choice name with " Options" concatenated eg. Salad Options, Drink Options
-        labelName.setText(choice.name() + " Options");
+        if (choice.allowedCount() == 0) {
+            labelName.setText(choice.name() + " Options");
+        } else {
+            labelName.setText(choice.name() + " Options (Max " + choice.allowedCount() + ")");
+        }
         //hide the "Required label" for optional choices
         if (choice.requiredCount() == 0) labelRequired.setOpacity(0);
     }

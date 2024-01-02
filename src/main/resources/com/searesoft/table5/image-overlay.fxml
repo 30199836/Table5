@@ -15,7 +15,7 @@
         <RowConstraints fillHeight="false" percentHeight="100.0" valignment="CENTER" vgrow="NEVER" />
     </rowConstraints>
     <children>
-        <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+        <VBox fx:id="vBoxDialogRoot" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black; -fx-border-color: black;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
             <children>
                 <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" VBox.vgrow="NEVER">
                     <columnConstraints>
@@ -29,9 +29,9 @@
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
-                     <GridPane.margin>
-                        <Insets left="7.0" />
-                     </GridPane.margin>
+                            <GridPane.margin>
+                                <Insets left="7.0" />
+                            </GridPane.margin>
                         </Label>
                         <ImageView fx:id="imageClose" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                             <image>
@@ -40,9 +40,9 @@
                             <GridPane.margin>
                                 <Insets right="7.0" />
                             </GridPane.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
                         </ImageView>
                     </children>
                     <opaqueInsets>
@@ -51,34 +51,35 @@
                     <padding>
                         <Insets bottom="4.0" top="4.0" />
                     </padding>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-                </GridPane>
-                    <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #FFFFFF;" VBox.vgrow="ALWAYS">
-                        <columnConstraints>
-                            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
-                        </columnConstraints>
-                        <rowConstraints>
-                            <RowConstraints maxHeight="1.7976931348623157E308" valignment="CENTER" vgrow="ALWAYS" />
-                        </rowConstraints>
-                        <opaqueInsets>
-                            <Insets />
-                        </opaqueInsets>
-               <children>
-                  <ImageView fx:id="image" fitHeight="256.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-                     <cursor>
+                    <cursor>
                         <Cursor fx:constant="DEFAULT" />
-                     </cursor></ImageView>
-               </children>
-                    </GridPane>
+                    </cursor>
+                </GridPane>
+                <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #FFFFFF;" VBox.vgrow="ALWAYS">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="1.7976931348623157E308" valignment="CENTER" vgrow="ALWAYS" />
+                    </rowConstraints>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <children>
+                        <ImageView fx:id="image" fitHeight="256.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                        </ImageView>
+                    </children>
+                </GridPane>
             </children>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
+            <GridPane.margin>
+                <Insets />
+            </GridPane.margin>
         </VBox>
     </children>
-   <cursor>
-      <Cursor fx:constant="HAND" />
-   </cursor>
+    <cursor>
+        <Cursor fx:constant="HAND" />
+    </cursor>
 </GridPane>

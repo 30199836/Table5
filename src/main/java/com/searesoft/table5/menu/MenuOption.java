@@ -99,6 +99,22 @@ public class MenuOption {
     }
 
     /**
+     * Find a menu choice by name
+     *
+     * @param name the name of the menu choice
+     * @return the MenuChoice or null
+     */
+    public MenuChoice menuChoiceFromName(String name) {
+        int hash = elfHash(name);
+        for (MenuChoice choice : choices) {
+            if (choice.hash() == hash && choice.name().equalsIgnoreCase(name)) {
+                return choice;
+            }
+        }
+        return null;
+    }
+
+    /**
      * Parse this option from an XML tag
      *
      * @param tag  The XML tag containing the metadata for this menu option

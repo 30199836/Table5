@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 /**
- * Controller for the add/edit overlay option header
+ * Controller for each Menu Option Header
  */
 public class OptionHeaderController {
     @FXML

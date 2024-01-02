@@ -18,7 +18,7 @@ public class Order {
     public class Choice {
         public String name;
         public ArrayList<String> items = new ArrayList<>();
-
+        public ArrayList<Double> prices = new ArrayList<>();
         private Item item;
 
         public Item item() {
@@ -72,18 +72,29 @@ public class Order {
         price = 0;
         for (Item item : items) {
             price += item.price;
+//            for (Choice choice : item.choices) {
+//                for (int i = 0; i < choice.prices.size(); i++) {
+//                    price += choice.prices.get(i);
+//                }
+//            }
         }
     }
 
+    //Simple persistent storage for the order ID so it increments even after restarting the app
     private int id = -1;
     private String idFilename = System.getProperty("user.dir") + "\\id.txt";
 
+    /**
+     * Increment and return the order ID and handle the persistent storage in a text file
+     *
+     * @return the next order ID
+     */
     public int nextID() {
         if (id == -1) {
             try {
                 id = Integer.parseInt(new String(Files.readAllBytes(Paths.get(idFilename)), StandardCharsets.UTF_8));
             } catch (Exception e) {
-                //doesn't really matter if this is persistent, just a novelty
+                //the file probably didn't exist, just start from zero
                 id = 0;
             }
         }
@@ -91,7 +102,7 @@ public class Order {
         try {
             Files.writeString(Paths.get(idFilename), String.valueOf(id), StandardOpenOption.CREATE);
         } catch (Exception e) {
-            //doesn't really matter if this is persistent, just a novelty
+            throw new RuntimeException(e);
         }
         return id;
     }

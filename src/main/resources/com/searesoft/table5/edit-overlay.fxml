@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF88;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <columnConstraints>
+        <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints fillHeight="false" percentHeight="100.0" valignment="CENTER" vgrow="NEVER" />
+    </rowConstraints>
+    <children>
+        <VBox fx:id="vBoxDialogRoot" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="550.0" style="-fx-background-color: black; -fx-border-color: black;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <children>
+                <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black; -fx-border-color: black;" VBox.vgrow="NEVER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints fillHeight="false" valignment="CENTER" vgrow="NEVER" />
+                    </rowConstraints>
+                    <children>
+                        <Label fx:id="labelName" text="Plain Burger" textFill="WHITE" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.vgrow="NEVER">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                        </Label>
+                        <ImageView fx:id="imageClose" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                            <image>
+                                <Image url="@../../../images/close-white256.png" />
+                            </image>
+                            <GridPane.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </GridPane.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </ImageView>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </GridPane>
+                <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="1.7976931348623157E308" valignment="TOP" vgrow="ALWAYS" />
+                    </rowConstraints>
+                    <children>
+                        <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;">
+                            <children>
+                                <Text fx:id="textDescription" strokeType="OUTSIDE" strokeWidth="0.0" text="Plain Burger on its own" textAlignment="CENTER" wrappingWidth="440.0">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" top="4.0" />
+                                    </VBox.margin>
+                                </Text>
+                                <Label fx:id="labelBasePrice" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="From £2.95" textFill="BLACK">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets bottom="4.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <VBox fx:id="vBoxImage">
+                                    <children>
+                                        <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1.0" valignment="TOP" />
+                                        <ImageView fx:id="imageOrder" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                            <VBox.margin>
+                                                <Insets bottom="16.0" top="16.0" />
+                                            </VBox.margin>
+                                        </ImageView>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </GridPane>
+                <VBox>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <children>
+                        <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1.0" valignment="TOP">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </Separator>
+                        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;">
+                            <columnConstraints>
+                                <ColumnConstraints fillWidth="false" hgrow="ALWAYS" />
+                                <ColumnConstraints fillWidth="false" hgrow="ALWAYS" />
+                                <ColumnConstraints fillWidth="false" hgrow="ALWAYS" percentWidth="10.0" />
+                                <ColumnConstraints fillWidth="false" hgrow="ALWAYS" />
+                                <ColumnConstraints hgrow="ALWAYS" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" valignment="CENTER" vgrow="ALWAYS" />
+                                <RowConstraints fillHeight="false" minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
+                                <RowConstraints />
+                            </rowConstraints>
+                            <children>
+                                <Label fx:id="labelCount" alignment="CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets />
+                                    </GridPane.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </Label>
+                                <ImageView fx:id="imagePlus" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                    <image>
+                                        <Image url="@../../../images/plus-black256.png" />
+                                    </image>
+                                    <GridPane.margin>
+                                        <Insets bottom="4.0" top="4.0" />
+                                    </GridPane.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ImageView>
+                                <ImageView fx:id="imageMinus" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                                    <image>
+                                        <Image url="@../../../images/minus-black256.png" />
+                                    </image>
+                                    <GridPane.margin>
+                                        <Insets bottom="4.0" top="4.0" />
+                                    </GridPane.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ImageView>
+                                <ImageView fx:id="imageRemove" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                    <image>
+                                        <Image url="@../../../images/bin256-black.png" />
+                                    </image>
+                                    <GridPane.margin>
+                                        <Insets bottom="8.0" top="8.0" />
+                                    </GridPane.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <padding>
+                                <Insets top="4.0" />
+                            </padding>
+                        </GridPane>
+                    </children>
+                </VBox>
+                <GridPane fx:id="gridPaneUpdate" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black; -fx-border-color: black;" VBox.vgrow="NEVER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints fillHeight="false" minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints fillHeight="false" minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Update Order" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="labelPrice" text="£2.95" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                            <GridPane.margin>
+                                <Insets bottom="4.0" top="4.0" />
+                            </GridPane.margin>
+                        </Label>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </GridPane>
+            </children>
+        </VBox>
+    </children>
+</GridPane>

@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Controller for the Add/Edit overlay dialog
+ * Controller for the checkout overlay dialog
  */
 public class CheckoutOverlayController extends BaseMenuController {
     @FXML
-    VBox dialogRoot;
+    VBox vBoxDialogRoot;
 
     @FXML
     ImageView imageClose;
@@ -35,18 +35,6 @@ public class CheckoutOverlayController extends BaseMenuController {
     ScrollPane scrollPaneOrder;
     @FXML
     VBox vBoxOrderRoot;
-    //
-//    @FXML
-//    VBox vBoxPrice;
-//
-//    @FXML
-//    VBox vBoxProducts;
-//
-//    @FXML
-//    VBox vBoxQuantity;
-//
-//    @FXML
-//    VBox vBoxTotal;
     @FXML
     VBox vBoxDetails;
     @FXML
@@ -57,7 +45,7 @@ public class CheckoutOverlayController extends BaseMenuController {
     @FXML
     ImageView imagePrice;
     @FXML
-    GridPane gridPanePrint;
+    GridPane gridPaneConfirm;
 
     private String orderID;
 
@@ -80,23 +68,28 @@ public class CheckoutOverlayController extends BaseMenuController {
         vBoxDetails.setVisible(false);
     }
 
+    /**
+     * Update the orderID and details labels
+     */
     public void updateDetails() {
         orderID = String.valueOf(order.nextID());
         labelOrderID.setText("Order ID: " + orderID);
         labelTime.setText("Time ordered: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
     }
-
+    /**
+     * Hide the details gui controls when displaying the receipt
+     */
     public void hideDetails() {
         vBoxLogo.setVisible(false);
         vBoxDetails.setVisible(false);
     }
-
+    /**
+     * Show the details gui controls when printing the receipt
+     */
     public void showDetails() {
         vBoxLogo.setVisible(true);
         vBoxDetails.setVisible(true);
     }
-
-
     /**
      * Update the dialog size
      *
@@ -106,6 +99,7 @@ public class CheckoutOverlayController extends BaseMenuController {
     @Override
     public void updateSize(double width, double height) {
         // dialogRoot.setPrefWidth(width * 0.75);
-        dialogRoot.setPrefHeight(height * 0.75);
+
+        vBoxDialogRoot.setPrefHeight(height * 0.75);
     }
 }

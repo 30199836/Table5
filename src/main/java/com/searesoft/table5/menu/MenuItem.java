@@ -16,24 +16,70 @@ public class MenuItem {
     private int hash;
     private String description;
 
-    public int selectedIndex = -1;
+    public int optionIndex = -1;
 
     /**
-     * Read access to selectedIndex
+     * Read access to optionIndex
      *
      * @return The currently selected option index
      */
-    public int selectedIndex() {
-        return selectedIndex;
+    public int optionIndex() {
+        return optionIndex;
     }
 
     /**
-     * Write access to selectedIndex
+     * Write access to optionIndex
      *
-     * @param selectedIndex The currently selected option index
+     * @param optionIndex The currently selected option index
      */
-    public void setSelectedIndex(int selectedIndex) {
-        this.selectedIndex = selectedIndex;
+    public void setOptionIndex(int optionIndex) {
+        this.optionIndex = optionIndex;
+    }
+
+    /**
+     * Set the option index from the option name
+     *
+     * @param name the option name
+     */
+    public void setOptionIndexFromName(String name) {
+        int hash = elfHash(name);
+        for (int i = 0; i < menuOptions.size(); i++) {
+            if (menuOptions.get(i).hash() == hash && menuOptions.get(i).name().equalsIgnoreCase(name)) {
+                optionIndex = i;
+            }
+        }
+        this.optionIndex = -1;
+    }
+
+    /**
+     * Get the option index from the option name
+     *
+     * @param name the option name
+     * @return the option index or -1
+     */
+    public int optionIndexFromName(String name) {
+        int hash = elfHash(name);
+        for (int i = 0; i < menuOptions.size(); i++) {
+            if (menuOptions.get(i).hash() == hash && menuOptions.get(i).name().equalsIgnoreCase(name)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    /**
+     * Get the MenuOption from the option name
+     *
+     * @param name the option name
+     * @return the MenuOption or null
+     */
+    public MenuOption optionFromName(String name) {
+        int hash = elfHash(name);
+        for (int i = 0; i < menuOptions.size(); i++) {
+            if (menuOptions.get(i).hash() == hash && menuOptions.get(i).name().equalsIgnoreCase(name)) {
+                return options().get(i);
+            }
+        }
+        return null;
     }
 
     /**
@@ -47,6 +93,7 @@ public class MenuItem {
 
     /**
      * Read access to owner category
+     *
      * @return The owner MenuCategory
      */
     public MenuCategory owner() {
@@ -94,7 +141,7 @@ public class MenuItem {
      * Constructor
      *
      * @param owner The owner category
-     * @param name The menu item name
+     * @param name  The menu item name
      */
     MenuItem(MenuCategory owner, String name) {
         setName(name);
@@ -104,7 +151,7 @@ public class MenuItem {
     /**
      * Copy constructor
      *
-     * @param owner the owner category
+     * @param owner    the owner category
      * @param menuItem the menu item to duplicate
      */
     public MenuItem(MenuCategory owner, MenuItem menuItem) {

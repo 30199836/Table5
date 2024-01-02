@@ -3,6 +3,7 @@ package com.searesoft.table5.menu;
 import com.searesoft.lib.*;
 import com.searesoft.table5.App;
 
+import javax.swing.plaf.MenuBarUI;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
@@ -70,6 +71,22 @@ public class Menu {
         for (MenuCategory cat : menuCategories) {
             if (cat.hash() == hash && cat.name().equalsIgnoreCase(name)) {
                 return cat;
+            }
+        }
+        return null;
+    }
+    /**
+     * Find a menu item by name
+     * @param name The name of the menu item
+     * @return The MenuItem or null
+     */
+    public MenuItem menuItemFromName(String name) {
+        int hash = elfHash(name);
+        for (MenuCategory cat : menuCategories) {
+            for (MenuItem item: cat.menuItems()) {
+                if (item.hash() == hash && item.name().equalsIgnoreCase(name)) {
+                    return item;
+                }
             }
         }
         return null;
