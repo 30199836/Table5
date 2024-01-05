@@ -36,7 +36,7 @@ public class App extends Application {
         stage.setTitle("Table5 - Savour the moment, taste the tradition!");
         stage.setMinWidth(width);
         stage.setMinHeight(height);
-        stage.getIcons().add(new Image(App.class.getResourceAsStream("/icons/icon32.png")));
+        stage.getIcons().add(new Image(App.class.getResourceAsStream("/images/Table5-white32.png")));
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setOnCloseRequest(event -> {
