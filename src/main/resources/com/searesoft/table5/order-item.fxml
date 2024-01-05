@@ -6,104 +6,97 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane fx:id="root" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20"
-          xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="root" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
-        <ColumnConstraints hgrow="ALWAYS"/>
+        <ColumnConstraints hgrow="ALWAYS" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints fillHeight="false" vgrow="NEVER"/>
+        <RowConstraints fillHeight="false" vgrow="NEVER" />
     </rowConstraints>
     <children>
-        <VBox fx:id="vboxOrderRoot" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-              style="-fx-background-color: transparent;">
+        <VBox fx:id="vboxOrderRoot" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;">
             <children>
                 <GridPane fx:id="gridPaneSeparator">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints vgrow="ALWAYS"/>
+                        <RowConstraints vgrow="ALWAYS" />
                     </rowConstraints>
                     <children>
-                        <Separator fx:id="separator" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                                   minWidth="-Infinity" prefHeight="16.0" prefWidth="100.0"
-                                   GridPane.halignment="CENTER"/>
+                        <Separator fx:id="separator" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="16.0" prefWidth="100.0" GridPane.halignment="CENTER" />
                     </children>
                     <cursor>
-                        <Cursor fx:constant="DEFAULT"/>
+                        <Cursor fx:constant="DEFAULT" />
                     </cursor>
                 </GridPane>
-                <GridPane fx:id="gridPaneDetails" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308"
-                          maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;">
+                <GridPane fx:id="gridPaneDetails" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: transparent;">
                     <columnConstraints>
-                        <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="1.7976931348623157E308"/>
-                        <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="1.7976931348623157E308"/>
-                        <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308"/>
+                        <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="1.7976931348623157E308" />
+                        <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="1.7976931348623157E308" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints/>
-                        <RowConstraints/>
-                        <RowConstraints vgrow="ALWAYS"/>
-                        <RowConstraints/>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints />
                     </rowConstraints>
                     <children>
-                        <Label fx:id="labelPrice" alignment="TOP_LEFT" text="£2.95" GridPane.columnIndex="2"
-                               GridPane.rowIndex="1">
+                        <Label fx:id="labelPrice" alignment="TOP_LEFT" text="£2.95" GridPane.columnIndex="2" GridPane.rowIndex="1">
                             <font>
-                                <Font name="System Bold" size="18.0"/>
+                                <Font name="System Bold" size="18.0" />
                             </font>
                             <GridPane.margin>
-                                <Insets bottom="4.0" left="4.0" right="8.0" top="4.0"/>
+                                <Insets bottom="4.0" left="4.0" right="8.0" top="4.0" />
                             </GridPane.margin>
                         </Label>
-                        <Label fx:id="labelName" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                               mnemonicParsing="false" text="Pepperoni" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="labelName" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Pepperoni" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <font>
-                                <Font name="System Bold" size="18.0"/>
+                                <Font name="System Bold" size="18.0" />
                             </font>
                             <GridPane.margin>
-                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                             </GridPane.margin>
                         </Label>
-                        <Label fx:id="labelCount" text="Label" GridPane.rowIndex="1">
+                        <Label fx:id="labelCount" text="1x" GridPane.rowIndex="1">
                             <GridPane.margin>
-                                <Insets bottom="4.0" left="8.0" right="4.0" top="4.0"/>
+                                <Insets bottom="4.0" left="8.0" right="4.0" top="4.0" />
                             </GridPane.margin>
                             <font>
-                                <Font name="System Bold" size="14.0"/>
+                                <Font name="System Bold" size="14.0" />
                             </font>
                         </Label>
                     </children>
                 </GridPane>
                 <Label text="Label">
                     <font>
-                        <Font size="16.0"/>
+                        <Font size="16.0" />
                     </font>
                     <padding>
-                        <Insets left="4.0"/>
+                        <Insets left="4.0" />
                     </padding>
                 </Label>
                 <Label text="Label">
                     <font>
-                        <Font size="16.0"/>
+                        <Font size="16.0" />
                     </font>
                     <padding>
-                        <Insets left="4.0"/>
+                        <Insets left="4.0" />
                     </padding>
                 </Label>
                 <Label text="Label">
                     <font>
-                        <Font size="16.0"/>
+                        <Font size="16.0" />
                     </font>
                     <VBox.margin>
-                        <Insets left="4.0"/>
+                        <Insets left="4.0" />
                     </VBox.margin>
                 </Label>
             </children>
         </VBox>
     </children>
     <cursor>
-        <Cursor fx:constant="HAND"/>
+        <Cursor fx:constant="HAND" />
     </cursor>
 </GridPane>

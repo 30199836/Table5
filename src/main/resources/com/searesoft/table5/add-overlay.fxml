@@ -38,7 +38,7 @@
                         </Label>
                         <ImageView fx:id="imageClose" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                             <image>
-                                <Image url="@../../../images/close-white256.png" />
+                                <Image url="@../../../images/close-white36.png" />
                             </image>
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -137,7 +137,7 @@
                                 </Label>
                                 <ImageView fx:id="imagePlus" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                                     <image>
-                                        <Image url="@../../../images/plus-black256.png" />
+                                        <Image url="@../../../images/plus-black36.png" />
                                     </image>
                                     <GridPane.margin>
                                         <Insets bottom="4.0" top="4.0" />
@@ -148,7 +148,7 @@
                                 </ImageView>
                                 <ImageView fx:id="imageMinus" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                                     <image>
-                                        <Image url="@../../../images/minus-black256.png" />
+                                        <Image url="@../../../images/minus-black36.png" />
                                     </image>
                                     <GridPane.margin>
                                         <Insets bottom="4.0" top="4.0" />

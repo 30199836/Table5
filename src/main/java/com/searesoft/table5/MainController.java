@@ -731,7 +731,7 @@ public class MainController {
                     "Desktop");
 
             if (desktopPath == null) {
-                MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.orderID(), "Error", "Unable to determine the Desktop folder location to save the receipt");
+                MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.orderID()+"\nThank you for your custom!", "Error", "Unable to determine the Desktop folder location to save the receipt");
             } else {
                 String filename = "Table5Order" + ovl.orderID() + ".png";
                 ovl.showDetails();

@@ -65,7 +65,7 @@
                         </ImageView>
                         <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                             <image>
-                                <Image url="@../../../images/Table5-black256.png" />
+                                <Image url="@../../../images/Table5-black128.png" />
                             </image>
                         </ImageView>
                         <VBox alignment="TOP_CENTER" prefHeight="272.0" prefWidth="365.0" GridPane.rowIndex="1">
@@ -120,7 +120,7 @@
                                 </Label>
                                 <ImageView fx:id="imageClose" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                                     <image>
-                                        <Image url="@../../../images/close-black256.png" />
+                                        <Image url="@../../../images/close-black36.png" />
                                     </image>
                                     <GridPane.margin>
                                         <Insets right="7.0" />

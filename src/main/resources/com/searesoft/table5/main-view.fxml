@@ -286,17 +286,17 @@
                                 </GridPane>
                             </children>
                         </GridPane>
-                  <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <HBox alignment="CENTER" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../images/Table5-black256.png" />
+                              <Image url="@../../../images/Table5-black68.png" />
                            </image>
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Table5">
+                        <Label prefHeight="70.0" text="Table5">
                            <HBox.margin>
                               <Insets left="16.0" />
                            </HBox.margin>
@@ -306,7 +306,7 @@
                         </Label>
                      </children>
                      <GridPane.margin>
-                        <Insets top="1.0" />
+                        <Insets />
                      </GridPane.margin>
                   </HBox>
                     </children>

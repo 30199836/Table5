@@ -56,7 +56,7 @@
                         </ImageView>
                         <ImageView fx:id="imageMagnify" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../../images/magnify128.png" />
+                                <Image url="@../../../images/magnify-white128.png" />
                             </image>
                         </ImageView>
                     </children>

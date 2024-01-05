@@ -70,9 +70,9 @@
                 <Insets />
             </GridPane.margin>
         </VBox>
-        <ImageView fx:id="imageAbout" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+        <ImageView fx:id="imageAbout" fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
             <image>
-                <Image url="@../../../images/about-white256.png" />
+                <Image url="@../../../images/about-white68.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />

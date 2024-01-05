@@ -35,7 +35,7 @@
                         </Label>
                         <ImageView fx:id="imageClose" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                             <image>
-                                <Image url="@../../../images/close-white256.png" />
+                                <Image url="@../../../images/close-white36.png" />
                             </image>
                             <GridPane.margin>
                                 <Insets right="7.0" />
