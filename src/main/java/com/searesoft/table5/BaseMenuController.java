@@ -76,7 +76,7 @@ public abstract class BaseMenuController {
      * @param image The imageview to load the image into
      */
     public void loadImage(ImageView image){
-        InputStream stream = App.class.getResourceAsStream("/images/menu/" + menuItem.name() + ".png");
+        InputStream stream = App.class.getResourceAsStream("/images/menu/JPEG/" + menuItem.name() + ".jpg");
      //   InputStream stream = App.class.getResourceAsStream("/images/Table5.gif");
         if (stream == null) {
             image.setImage(null);
