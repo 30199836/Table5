@@ -459,7 +459,7 @@ public class MainController {
             order.items.remove(ovl.orderItem);
             vboxOrderRoot.getChildren().remove(ovl.orderItemController.root);
             if (orderItemControllers.indexOf(ovl.orderItemController) == 0 && orderItemControllers.size() > 1) {
-                orderItemControllers.get(1).gridPaneSeparator.setVisible(false);
+                orderItemControllers.get(1).hideSeparator();
             }
             orderItemControllers.remove(ovl.orderItemController);
 

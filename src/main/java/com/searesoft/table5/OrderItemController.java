@@ -37,6 +37,16 @@ public class OrderItemController {
 
     private boolean separatorHidden;
 
+    public void hideSeparator() {
+        separatorHidden = true;
+        gridPaneSeparator.setVisible(false);
+    }
+
+    public void showSeparator() {
+        separatorHidden = false;
+        gridPaneSeparator.setVisible(true);
+    }
+
     /**
      * Initialize the controller
      *
@@ -58,13 +68,7 @@ public class OrderItemController {
         }
 
         //don't show the separator at the top
-        separatorHidden = item.order().items.size() == 1;
-        if (separatorHidden) {
-            gridPaneSeparator.setVisible(false);
-
-           //vboxOrderRoot.getChildren().remove(gridPaneSeparator);
-            //  separator.setOpacity(0);
-        }
+        if (item.order().items.size() == 1) hideSeparator();
 
         Label label;
 
@@ -103,7 +107,7 @@ public class OrderItemController {
     /**
      * Show the details pane
      */
-    public void showDetails(){
+    public void showDetails() {
         gridPaneDetails.setVisible(true);
         if (!separatorHidden) gridPaneSeparator.setVisible(true);
     }
@@ -111,7 +115,7 @@ public class OrderItemController {
     /**
      * Hide the details pane when taking a snapshot
      */
-    public void hideDetails(){
+    public void hideDetails() {
         gridPaneDetails.setVisible(false);
         if (!separatorHidden) gridPaneSeparator.setVisible(false);
     }
