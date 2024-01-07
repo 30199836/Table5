@@ -47,6 +47,32 @@
             <listItem price1="0.3" price2="0.4" price3="0.5">Chili Pepper</listItem>
             <listItem price1="0.3" price2="0.4" price3="0.5">Jalapeños</listItem>
         </menuList>
+        <menuList name="fruitShoot">
+            <listItem>Orange 200ml</listItem>
+            <listItem>Apple and Blackcurrant 200ml</listItem>
+        </menuList>
+        <menuList name="hotOrNormal">
+            <listItem>Hot</listItem>
+            <listItem>Normal</listItem>
+        </menuList>
+        <menuList name="pasta">
+            <listItem>Macaroni</listItem>
+            <listItem>Penne</listItem>
+            <listItem>Spaghetti</listItem>
+            <listItem>Tagliatelle</listItem>
+        </menuList>
+        <menuList name="gratinTopping">
+            <listItem price="0.95">Ham</listItem>
+            <listItem price="0.8">Leicester Cheese</listItem>
+            <listItem price="0.95">Bacon</listItem>
+            <listItem price="0.95">Chicken</listItem>
+            <listItem price="0.95">Pork</listItem>
+            <listItem price="0.8">Mushrooms</listItem>
+            <listItem price="0.8">Broccoli</listItem>
+            <listItem price="0.5">Onions</listItem>
+            <listItem price="0.5">Olives</listItem>
+            <listItem price="0.5">Chilli Pepper</listItem>
+        </menuList>
     </lists>
 
     <categories>
@@ -97,6 +123,7 @@
             <description>Freshly Made 40cm Crepes</description>
         </category>
         <category name="Sides">
+            <description>Side dishes to accompany your meal</description>
             <menuItem name="Chips">
                 <description>Classic fried chipped potatoes</description>
                 <price>2.70</price>
@@ -521,15 +548,143 @@
             </menuItem>
         </category>
         <category name="Loaded Fries">
+            <description>A big pile of crispy french fries smothered in melty cheese and your fave toppings!</description>
+            <menuItem name="Salt and Pepper Chicken Loaded Fries">
+                <description>Salt and Pepper Chicken Strips, Chips, Cheese and Choice of Sauce</description>
+                <price>8.8</price>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Chicken Tikka Loaded Fries">
+                <description>Chicken Tikka, Chips, Cheese and choice of sauce</description>
+                <price>9.25</price>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Salt and Chilli Chicken Loaded Fries">
+                <description>Salt and Chilli Chicken Strips, Chips, Cheese and Choice of Sauce</description>
+                <price>8.8</price>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Buffalo Chips">
+                <description>Cheddar Cheese, Loaded with Hot Buffalo Sauce and a Pinch of Spring Onions</description>
+                <price>6.8</price>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Bacon Loaded Fries">
+                <description>Chips Topped with Bacon Pieces, Cheese and Choice of Sauce</description>
+                <price>8.25</price>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="BBQ Pulled Pork Loaded Fries">
+                <description>BBQ Pulled Pork, Chips, Cheese, spring onions and choice of sauce</description>
+                <price>9.25</price>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Pizza Fries">
+                <description>Pizza Sauce, Mozzarella Cheese, Pepperoni and Choice of Sauce</description>
+                <price>9.25</price>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Steak Loaded Fries">
+                <description>Chips, Cheddar cheese, Hand-Cut Steak Strips, Onion and Your Choice of Sauce</description>
+                <price>13.95</price>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
         </category>
         <category name="Kids Menu">
+            <description>Me-sized portions for the little ones</description>
+            <menuItem name="Kids Chicken Nuggets">
+                <description>5 Chicken Nuggets, Chips and Fruit Shoot 200ml</description>
+                <price>5.5</price>
+                <choice name="Fruit Shoot" requiredCount="1" menuList="fruitShoot"/>
+            </menuItem>
+            <menuItem name="Kids Cheeseburger">
+                <description>Cheeseburger, Chips and Fruit Shoot 200ml</description>
+                <price>5.5</price>
+                <choice name="Fruit Shoot" requiredCount="1" menuList="fruitShoot"/>
+            </menuItem>
+            <menuItem name="Kids Pizza">
+                <description>Cheese pizza slice, Chips and Fruit Shoot 200ml</description>
+                <price>5.5</price>
+                <choice name="Fruit Shoot" requiredCount="1" menuList="fruitShoot"/>
+            </menuItem>
+            <menuItem name="Kids Mac'n'Cheese">
+                <description>Mac'n'Cheese, Chips and Fruit Shoot 200ml</description>
+                <price>5.5</price>
+                <choice name="Fruit Shoot" requiredCount="1" menuList="fruitShoot"/>
+            </menuItem>
+            <menuItem name="Kids Bolognese">
+                <description>Bolognese, Chips and Fruit Shoot 200ml</description>
+                <price>5.5</price>
+                <choice name="Fruit Shoot" requiredCount="1" menuList="fruitShoot"/>
+            </menuItem>
         </category>
         <category name="Greek Souvlaki">
             <description>Choose Hot or Normal</description>
+            <menuItem name="Pita Wrapped Chicken">
+                <description>Pita, Tzatziki Sauce, Lettuce, Tomato, Red Onion, Chicken and Chips</description>
+                <price>6.9</price>
+                <choice name="Hot or Normal" requiredCount="1" menuList="hotOrNormal"/>
+            </menuItem>
+            <menuItem name="Pita Wrapped Pork">
+                <description>Pita, Tzatziki Sauce, Lettuce, Tomato, Red Onion, Pork and Chips</description>
+                <price>6.9</price>
+                <choice name="Hot or Normal" requiredCount="1" menuList="hotOrNormal"/>
+            </menuItem>
+            <menuItem name="Pita Wrapped Chicken and Pork">
+                <description>Pita, Tzatziki Sauce, Lettuce, Tomato, Red Onion, Chicken, Pork and Chips</description>
+                <price>6.9</price>
+                <choice name="Hot or Normal" requiredCount="1" menuList="hotOrNormal"/>
+            </menuItem>
+            <menuItem name="Special Pita Chicken">
+                <description>Pita x2, Tzatziki Sauce, Lettuce, Tomato, Red Onion, Chicken, Bacon, Mozzarella and Chips</description>
+                <price>12.5</price>
+                <choice name="Hot or Normal" requiredCount="1" menuList="hotOrNormal"/>
+            </menuItem>
+            <menuItem name="Special Pita Pork">
+                <description>Pita x2, Tzatziki Sauce, Lettuce, Tomato, Red Onion, Pork, Bacon, Mozzarella and Chips</description>
+                <price>12.5</price>
+                <choice name="Hot or Normal" requiredCount="1" menuList="hotOrNormal"/>
+            </menuItem>
+            <menuItem name="Special Pita Chicken and Pork">
+                <description>Pita x2, Tzatziki Sauce, Lettuce, Tomato, Red Onion, Chicken, Pork, Bacon, Mozzarella and Chips</description>
+                <price>12.5</price>
+                <choice name="Hot or Normal" requiredCount="1" menuList="hotOrNormal"/>
+            </menuItem>
         </category>
         <category name="Omelettes">
-        </category>
-        <category name="Rice Dishes">
+            <description>Made with only the best free-range eggs</description>
+            <menuItem name="Plain Omelette">
+                <description>Plain Omelette and Chips</description>
+                <price>6.95</price>
+            </menuItem>
+            <menuItem name="Cheese Omelette">
+                <description>Cheese Omelette and Chips</description>
+                <price>7.5</price>
+            </menuItem>
+            <menuItem name="Chicken Omelette">
+                <description>Chicken Omelette and Chips</description>
+                <price>7.5</price>
+            </menuItem>
+            <menuItem name="Cheese and Ham Omelette">
+                <description>Cheese and Ham Omelette and Chips</description>
+                <price>7.95</price>
+            </menuItem>
+            <menuItem name="Cheese and Pepperoni Omelette">
+                <description>Cheese and pepperoni Omelette and Chips</description>
+                <price>7.95</price>
+            </menuItem>
+            <menuItem name="Bacon Omelette">
+                <description>Bacon Omelette and Chips</description>
+                <price>7.5</price>
+            </menuItem>
+            <menuItem name="Ham Omelette">
+                <description>Ham Omelette and Chips</description>
+                <price>7.5</price>
+            </menuItem>
+            <menuItem name="Spinach Omelette">
+                <description>Spinach Omelette with garlic, feta cheese and Chips</description>
+                <price>7.5</price>
+            </menuItem>
         </category>
         <category name="Risotti">
             <description>Traditional Italian Arborio Rice Dishes.</description>
@@ -567,9 +722,75 @@
             </menuItem>
         </category>
         <category name="Pasta">
-            <description>Choose between Macaroni, Penne, Spaghetti and Tagliatelle</description>
+            <description>Your Choice of Macaroni, Penne, Spaghetti and Tagliatelle</description>
+            <menuItem name="Pasta Napoli">
+                <description>Fresh Basil and Napoli Sauce</description>
+                <price>7.95</price>
+                <choice name="Pasta" requiredCount="1" menuList="pasta"/>
+            </menuItem>
+            <menuItem name="Pasta Arabbiata">
+                <description>Served with Chilli, Fresh Basil and Napoli Sauce</description>
+                <price>8.95</price>
+                <choice name="Pasta" requiredCount="1" menuList="pasta"/>
+            </menuItem>
+            <menuItem name="Lasagne Al Forno">
+                <description>Authentic Lasagne with Pork and Beef Mince</description>
+                <price>9.95</price>
+            </menuItem>
+            <menuItem name="Pasta Bolognese">
+                <description>Served with Beef and Pork with Tomato, Garlic, Oregano and Parmesan</description>
+                <price>9.95</price>
+                <choice name="Pasta" requiredCount="1" menuList="pasta"/>
+            </menuItem>
+            <menuItem name="Pasta Formaggio">
+                <description>Served with Cheddar Cheese, Parmesan, Mozzarella Cheese and Cream</description>
+                <price>9.95</price>
+                <choice name="Pasta" requiredCount="1" menuList="pasta"/>
+            </menuItem>
+            <menuItem name="Pasta Carbonara">
+                <description>Served with Cream, Garlic, Bacon, Egg and Parmesan</description>
+                <price>9.95</price>
+                <choice name="Pasta" requiredCount="1" menuList="pasta"/>
+            </menuItem>
+            <menuItem name="Pasta Pollo Piccante">
+                <description>Chicken, Fresh Garlic, Chillies and Parmesan</description>
+                <price>9.95</price>
+                <choice name="Pasta" requiredCount="1" menuList="pasta"/>
+            </menuItem>
+            <menuItem name="Pasta Pollo E Pesto">
+                <description>Chicken in Our Creamy Pesto Sauce and Parmesan</description>
+                <price>9.95</price>
+                <choice name="Pasta" requiredCount="1" menuList="pasta"/>
+            </menuItem>
+            <menuItem name="Spaghetti Con Polpette">
+                <description>Spaghetti with Homemade Beef and Pork Meatballs in a Tomato and Garlic Sauce</description>
+                <price>9.95</price>
+            </menuItem>
+            <menuItem name="Pasta with Creamy Truffle Sauce">
+                <description>Fresh pasta in a Double Cream, Mushroom and Truffle Sauce with Parmesan</description>
+                <price>8.95</price>
+                <choice name="Pasta" requiredCount="1" menuList="pasta"/>
+            </menuItem>
+            <menuItem name="Pasta Peperoni Pollo">
+                <description>Pepperoni, Chicken, Napoli Sauce and Parmesan</description>
+                <price>10.95</price>
+                <choice name="Pasta" requiredCount="1" menuList="pasta"/>
+            </menuItem>
         </category>
         <category name="Calzone">
+            <description>Folded 12" Pizza with Your choice of fillings</description>
+            <menuItem name="Capricciosa Calzone">
+                <description>Tomato sauce, Mozzarella, Ham and Mushrooms</description>
+                <price>10.95</price>
+            </menuItem>
+            <menuItem name="Four Meat Calzone">
+                <description>Tomato Sauce, Mozzarella, Chicken, Ham, Pepperoni and Bacon</description>
+                <price>12.50</price>
+            </menuItem>
+            <menuItem name="Mac'n'Cheese Calzone">
+                <description>Mac'n'Cheese</description>
+                <price>10.95</price>
+            </menuItem>
         </category>
         <category name="Focaccia">
             <description>12" Oven Baked Pizza Bianca</description>
@@ -897,7 +1118,12 @@
             <description>Double Cream and Cheese Sauce Base.</description>
         </category>
         <category name="Potato Gratin">
-            <description>Potato, Cream, Garlic Butter and Mozzarella.</description>
+            <description>Potato Gratin with Your Choice of Toppings</description>
+            <menuItem name="Potato Gratin">
+                <description>Potato, Cream, Garlic Butter and Mozzarella.</description>
+                <price>5.50</price>
+                <choice name="Gratin Topping" allowedCount="5" menuList="gratinTopping"/>
+            </menuItem>
         </category>
         <category name="Meat Dishes">
         </category>
@@ -958,8 +1184,6 @@
                 <description>Mogu Mogu Mango Flavoured Drink with Nata de Coco</description>
                 <price>1.50</price>
             </menuItem>
-
-
         </category>
     </categories>
 </menu>
