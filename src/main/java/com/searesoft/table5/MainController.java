@@ -599,11 +599,10 @@ public class MainController {
                         }
                         double height = scrollPaneMenu.getContent().getBoundsInLocal().getHeight() - scrollPaneMenu.getHeight();
                         double pos = newValue.doubleValue() * height;
-                        for (int i = 0; i < headers.length - 1; i++) {
-                            //the y position of this and the next header label
+                        for (int i = headers.length - 1; i > -1; i--) {
+                            //the y position of this header label
                             double y1 = headers[i].getBoundsInParent().getMinY();
-                            double y2 = headers[i + 1].getBoundsInParent().getMinY();
-                            if (pos >= y1 && pos < y2 - 0.0001) {
+                            if (pos > y1 - 1) {
                                 //set the category selection
                                 listViewCategories.getSelectionModel().select(i);
                                 //scroll the item into view if not visible
@@ -722,7 +721,7 @@ public class MainController {
                     "Desktop");
 
             if (desktopPath == null) {
-                MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.orderID()+"\nThank you for your custom!", "Error", "Unable to determine the Desktop folder location to save the receipt");
+                MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.orderID() + "\nThank you for your custom!", "Error", "Unable to determine the Desktop folder location to save the receipt");
             } else {
                 String filename = "Table5Order" + ovl.orderID() + ".png";
                 ovl.showDetails();
