@@ -3,7 +3,6 @@ package com.searesoft.table5.menu;
 import com.searesoft.lib.*;
 import com.searesoft.table5.App;
 
-import javax.swing.plaf.MenuBarUI;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 

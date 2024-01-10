@@ -1,7 +1,6 @@
 package com.searesoft.table5;
 
 import com.searesoft.table5.menu.MenuItem;
-import com.searesoft.table5.menu.MenuOption;
 import com.searesoft.table5.menu.Order;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -54,6 +53,7 @@ public class EditOverlayController extends BaseMenuController {
     public void init(MenuItem menuItem) {
         throw new RuntimeException("Don't use this!!");
     }
+
     /**
      * Initialize the controller
      *

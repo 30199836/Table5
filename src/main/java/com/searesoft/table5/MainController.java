@@ -29,6 +29,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Controller that handles the main application logic
+ */
 public class MainController {
     @FXML
     private GridPane gridPaneAdd;
@@ -74,9 +77,7 @@ public class MainController {
     @FXML
     GridPane gridPaneOrderPrice;
 
-
     public Stage stage = null;
-
 
     private MenuItemController firstMenuItemController;
     private BaseMenuController overlay;
@@ -107,21 +108,6 @@ public class MainController {
         public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
             height = t1.doubleValue();
             updateSize();
-//            if (introOverlay.root.isVisible() && !sizeChanged) {
-//                sizeChanged = true;
-//                Platform.runLater(() -> {
-//                    introOverlay.updateSize(width, height);
-//                    sizeChanged = false;
-//                });
-//            }
-//            //resize the overlay dialog
-//            if (overlay != null && !sizeChanged) {
-//                sizeChanged = true;
-//                Platform.runLater(() -> {
-//                    overlay.updateSize(width, height);
-//                    sizeChanged = false;
-//                });
-//            }
         }
     };
 
@@ -212,7 +198,7 @@ public class MainController {
     }
 
     /**
-     * Rebuild the add/edit dialog with the choices for current option
+     * Rebuild the add dialog with the choices for current option
      *
      * @param optionIndex the current option index
      */
@@ -344,7 +330,6 @@ public class MainController {
                 IOException ex) {
             throw new RuntimeException(ex);
         }
-
     }
 
     /**
@@ -420,6 +405,9 @@ public class MainController {
         closeOverlay();
     }
 
+    /**
+     * Called when the add to order item is clicked
+     */
     private void orderItemClicked(OrderItemController controller) {
         try {
             FXMLLoader loader = new FXMLLoader(App.class.getResource("edit-overlay.fxml"));
@@ -452,6 +440,9 @@ public class MainController {
         }
     }
 
+    /**
+     * Called when the update order button is clicked from EditOverlayController
+     */
     private void updateButtonClicked() {
         EditOverlayController ovl = ((EditOverlayController) overlay);
 

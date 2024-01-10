@@ -1,8 +1,6 @@
 package com.searesoft.table5;
 
 import com.searesoft.table5.menu.MenuChoice;
-import com.searesoft.table5.menu.MenuItem;
-import com.searesoft.table5.menu.MenuOption;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;

@@ -2,7 +2,6 @@ package com.searesoft.table5;
 
 import com.searesoft.table5.menu.MenuChoice;
 import com.searesoft.table5.menu.MenuListItem;
-import com.searesoft.table5.menu.MenuOption;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;

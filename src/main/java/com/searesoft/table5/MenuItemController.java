@@ -1,11 +1,9 @@
 package com.searesoft.table5;
 
-import com.searesoft.lib.FXUtils;
 import com.searesoft.table5.menu.MenuItem;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.scene.control.Separator;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -13,7 +11,7 @@ import javafx.scene.text.Text;
 import java.io.InputStream;
 
 /**
- * Controller for  each MenuITem
+ * Controller for  each MenuItem
  */
 public class MenuItemController extends BaseMenuController {
     @FXML
