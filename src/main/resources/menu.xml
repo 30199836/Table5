@@ -30,22 +30,22 @@
             <listItem>Tango Orange 330ml</listItem>
         </menuList>
         <menuList name="topping">
+            <listItem price1="0.3" price2="0.4" price3="0.5">Red Onion</listItem>
+            <listItem price1="0.3" price2="0.4" price3="0.5">Olive</listItem>
+            <listItem price1="0.3" price2="0.4" price3="0.5">Boiled Egg</listItem>
+            <listItem price1="0.3" price2="0.4" price3="0.5">Chili Pepper</listItem>
+            <listItem price1="0.3" price2="0.4" price3="0.5">Jalapeños</listItem>
+            <listItem price1="0.4" price2="0.5" price3="0.6">Ham</listItem>
+            <listItem price1="0.4" price2="0.5" price3="0.6">Mushrooms</listItem>
+            <listItem price1="0.4" price2="0.5" price3="0.6">Pepper</listItem>
+            <listItem price1="0.4" price2="0.5" price3="0.6">Sweetcorn</listItem>
+            <listItem price1="0.5" price2="0.7" price3="0.8">Cheddar</listItem>
+            <listItem price1="0.5" price2="0.7" price3="0.8">Leicester Cheese</listItem>
             <listItem price1="0.6" price2="0.75" price3="0.9">Bacon</listItem>
-            <listItem price1="0.4" price2="0.55" price3="0.7">Ham</listItem>
             <listItem price1="0.6" price2="0.75" price3="0.9">Chicken</listItem>
             <listItem price1="0.6" price2="0.75" price3="0.9">Pepperoni</listItem>
             <listItem price1="0.6" price2="0.75" price3="0.9">Salami</listItem>
-            <listItem price1="0.4" price2="0.5" price3="0.6">Mushrooms</listItem>
-            <listItem price1="0.4" price2="0.5" price3="0.6">Pepper</listItem>
-            <listItem price1="0.3" price2="0.4" price3="0.5">Red Onion</listItem>
-            <listItem price1="0.5" price2="0.7" price3="0.8">Cheddar</listItem>
-            <listItem price1="0.5" price2="0.7" price3="0.8">Leicester Cheese</listItem>
             <listItem price1="0.6" price2="0.75" price3="0.9">Gorgonzola</listItem>
-            <listItem price1="0.3" price2="0.4" price3="0.5">Olive</listItem>
-            <listItem price1="0.3" price2="0.4" price3="0.5">Boiled Egg</listItem>
-            <listItem price1="0.4" price2="0.5" price3="0.6">Sweetcorn</listItem>
-            <listItem price1="0.3" price2="0.4" price3="0.5">Chili Pepper</listItem>
-            <listItem price1="0.3" price2="0.4" price3="0.5">Jalapeños</listItem>
         </menuList>
         <menuList name="fruitShoot">
             <listItem>Orange 200ml</listItem>
@@ -62,16 +62,28 @@
             <listItem>Tagliatelle</listItem>
         </menuList>
         <menuList name="gratinTopping">
-            <listItem price="0.95">Ham</listItem>
-            <listItem price="0.8">Leicester Cheese</listItem>
-            <listItem price="0.95">Bacon</listItem>
-            <listItem price="0.95">Chicken</listItem>
-            <listItem price="0.95">Pork</listItem>
-            <listItem price="0.8">Mushrooms</listItem>
-            <listItem price="0.8">Broccoli</listItem>
             <listItem price="0.5">Onions</listItem>
             <listItem price="0.5">Olives</listItem>
             <listItem price="0.5">Chilli Pepper</listItem>
+            <listItem price="0.8">Mushrooms</listItem>
+            <listItem price="0.8">Broccoli</listItem>
+            <listItem price="0.8">Leicester Cheese</listItem>
+            <listItem price="0.95">Ham</listItem>
+            <listItem price="0.95">Bacon</listItem>
+            <listItem price="0.95">Chicken</listItem>
+            <listItem price="0.95">Pork</listItem>
+        </menuList>
+        <menuList name="crepeTopping">
+            <listItem>Tomato</listItem>
+            <listItem>Cucumber</listItem>
+            <listItem price="0.5">Chilli Pepper</listItem>
+            <listItem price="0.5">Olives</listItem>
+            <listItem price="0.5">Boiled Egg</listItem>
+            <listItem price="0.5">Jalapeños</listItem>
+            <listItem price="0.5">Pickles</listItem>
+            <listItem price="0.5">Red Onion</listItem>
+            <listItem price="0.5">Spinach</listItem>
+            <listItem price="0.6">Sweetcorn</listItem>
         </menuList>
     </lists>
 
@@ -121,6 +133,60 @@
         </category>
         <category name="Savoury Crepes">
             <description>Freshly Made 40cm Crepes</description>
+            <menuItem name="Cheese Crepe">
+                <description>Crepe with mozarella</description>
+                <price>4.95</price>
+                <choice name="Extra Topping" allowedCount="5" menuList="crepeTopping"/>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Feta Crepe">
+                <description>Crepe with White Feta Cheese</description>
+                <price>4.95</price>
+                <choice name="Extra Topping" allowedCount="5" menuList="crepeTopping"/>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Ham and Cheese Crepe">
+                <description>Crepe with Ham and Cheddar Cheese</description>
+                <price>5.8</price>
+                <choice name="Extra Topping" allowedCount="5" menuList="crepeTopping"/>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Turkey Ham and Smoked Cheese Crepe">
+                <description>Crepe with Turkey Ham and Smoked Cheese</description>
+                <price>5.8</price>
+                <choice name="Extra Topping" allowedCount="5" menuList="crepeTopping"/>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Four Cheese Crepe">
+                <description>Crepe with Mozzarella, Cheddar, Smoked Cheese and Blue Cheese</description>
+                <price>7.95</price>
+                <choice name="Extra Topping" allowedCount="5" menuList="crepeTopping"/>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Pepperoni Crepe">
+                <description>Crepe with Pepperoni and Cheddar Cheese</description>
+                <price>6.95</price>
+                <choice name="Extra Topping" allowedCount="5" menuList="crepeTopping"/>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Salami Crepe">
+                <description>Crepe with Salami and Cheddar Cheese</description>
+                <price>5.95</price>
+                <choice name="Extra Topping" allowedCount="5" menuList="crepeTopping"/>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Pulled Pork Crepe">
+                <description>Crepe with Pulled Pork and Cheddar Cheese</description>
+                <price>7.95</price>
+                <choice name="Extra Topping" allowedCount="5" menuList="crepeTopping"/>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
+            <menuItem name="Chicken Crepe">
+                <description>Crepe with Chicken and Cheddar Cheese</description>
+                <price>7.95</price>
+                <choice name="Extra Topping" allowedCount="5" menuList="crepeTopping"/>
+                <choice name="Sauce" allowedCount="2" menuList="sauce"/>
+            </menuItem>
         </category>
         <category name="Sides">
             <description>Side dishes to accompany your meal</description>
@@ -1122,14 +1188,8 @@
             <menuItem name="Potato Gratin">
                 <description>Potato, Cream, Garlic Butter and Mozzarella.</description>
                 <price>5.50</price>
-                <choice name="Gratin Topping" allowedCount="5" menuList="gratinTopping"/>
+                <choice name="Topping" allowedCount="5" menuList="gratinTopping"/>
             </menuItem>
-        </category>
-        <category name="Meat Dishes">
-        </category>
-        <category name="Dips">
-        </category>
-        <category name="Desserts">
         </category>
         <category name="Drinks">
             <menuItem name="Irn Bru 330ml">
