@@ -1181,7 +1181,27 @@
             </menuItem>
         </category>
         <category name="White Pizza ">
-            <description>Double Cream and Cheese Sauce Base.</description>
+            <description>12" Pizza base with Double Cream and Cheese Sauce.</description>
+            <menuItem name="Pizza Bianca">
+                <description>Mozzarella, Double Cream, Smoked Cheese and Turkey Ham</description>
+                <price>10.95</price>
+            </menuItem>
+            <menuItem name="Pizza Bujarda">
+                <description>Mozzarella, Mushrooms, Double Cream, Turkey Ham, Bacon and Smoked Cheese</description>
+                <price>11.95</price>
+            </menuItem>
+            <menuItem name="Pizza Roma">
+                <description>Double Cream, Mozzarella, Sliced Chicken Breast, Pickles and Olives</description>
+                <price>11.95</price>
+            </menuItem>
+            <menuItem name="Pizza Pope's">
+                <description>Double Cream, Mozzarella, Garlic, Feta Cheese and Spinach</description>
+                <price>10.95</price>
+            </menuItem>
+            <menuItem name="Pizza Capannelle">
+                <description>Mozzarella, Double Cream, Turkey Ham, Bacon, Onion and Smoked Cheese</description>
+                <price>11.95</price>
+            </menuItem>
         </category>
         <category name="Potato Gratin">
             <description>Potato Gratin with Your Choice of Toppings</description>
@@ -1240,9 +1260,61 @@
                 <description>Tango Orange 300ml can</description>
                 <price>1.40</price>
             </menuItem>
+            <menuItem name="Mineral Water 500ml">
+                <description>Mineral Water</description>
+                <price>1</price>
+            </menuItem>
+            <menuItem name="Sparkling Water 500ml">
+                <description>Sparkling Water</description>
+                <price>1</price>
+            </menuItem>
+            <menuItem name="Orange Juice 330ml">
+                <description>Orange Juice</description>
+                <price>1.9</price>
+            </menuItem>
+            <menuItem name="Tropical Juice 330ml">
+                <description>Tropical Juice</description>
+                <price>1.9</price>
+            </menuItem>
+            <menuItem name="Apple Juice 330ml">
+                <description>Apple Juice</description>
+                <price>1.9</price>
+            </menuItem>
+            <menuItem name="Red Bull Energy 250ml">
+                <description>Red Bull Energy Drink</description>
+                <price>1.45</price>
+            </menuItem>
+            <menuItem name="Red Bull Sugar Free 250ml">
+                <description>Red Bull Sugar Free Drink</description>
+                <price>1.9</price>
+            </menuItem>
+            <menuItem name="Monster Energy 500ml">
+                <description>Monster Energy Drink</description>
+                <price>1.45</price>
+            </menuItem>
+            <menuItem name="Chocolate Milk 500ml">
+                <description>Glass bottle of chocolate milk</description>
+                <price>2.5</price>
+            </menuItem>
+            <menuItem name="Strawberry Milk 500ml">
+                <description>Glass bottle of strawberry milk</description>
+                <price>2.5</price>
+            </menuItem>
+            <menuItem name="Banana Milk 500ml">
+                <description>Glass bottle of banana milk</description>
+                <price>2.5</price>
+            </menuItem>
+            <menuItem name="Mogu Mogu Melon 320ml">
+                <description>Mogu Mogu Melon Flavoured Drink with Nata de Coco</description>
+                <price>1.5</price>
+            </menuItem>
             <menuItem name="Mogu Mogu Mango 320ml">
                 <description>Mogu Mogu Mango Flavoured Drink with Nata de Coco</description>
-                <price>1.50</price>
+                <price>1.5</price>
+            </menuItem>
+            <menuItem name="Mogu Mogu Lychee 320ml">
+                <description>Mogu Mogu Lychee Flavoured Drink with Nata de Coco</description>
+                <price>1.5</price>
             </menuItem>
         </category>
     </categories>
