@@ -33,7 +33,7 @@
             <listItem price1="0.3" price2="0.4" price3="0.5">Red Onion</listItem>
             <listItem price1="0.3" price2="0.4" price3="0.5">Olive</listItem>
             <listItem price1="0.3" price2="0.4" price3="0.5">Boiled Egg</listItem>
-            <listItem price1="0.3" price2="0.4" price3="0.5">Chili Pepper</listItem>
+            <listItem price1="0.3" price2="0.4" price3="0.5">Chilli Pepper</listItem>
             <listItem price1="0.3" price2="0.4" price3="0.5">Jalapeños</listItem>
             <listItem price1="0.4" price2="0.5" price3="0.6">Ham</listItem>
             <listItem price1="0.4" price2="0.5" price3="0.6">Mushrooms</listItem>
@@ -859,7 +859,7 @@
             </menuItem>
         </category>
         <category name="Focaccia">
-            <description>12" Oven Baked Pizza Bianca</description>
+            <description>12" Oven Baked Flat Bread</description>
             <menuItem name="Focaccia Rosmarino">
                 <description>12" Focaccia with Fresh Rosemary and Sea Salt</description>
                 <price>4.95</price>
@@ -1181,7 +1181,7 @@
             </menuItem>
         </category>
         <category name="White Pizza ">
-            <description>12" Pizza base with Double Cream and Cheese Sauce.</description>
+            <description>12" Pizza Base with Double Cream and Cheese Sauce.</description>
             <menuItem name="Pizza Bianca">
                 <description>Mozzarella, Double Cream, Smoked Cheese and Turkey Ham</description>
                 <price>10.95</price>
