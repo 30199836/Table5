@@ -13,9 +13,8 @@ import java.nio.charset.StandardCharsets;
 
 import static java.awt.Desktop.getDesktop;
 
-
 /**
- * Controller for the product image overlay dialog
+ * Controller for the about overlay dialog
  */
 public class AboutOverlayController extends BaseMenuController {
     @FXML
@@ -25,7 +24,20 @@ public class AboutOverlayController extends BaseMenuController {
     @FXML
     VBox vBoxDialogRoot;
 
+    /**
+     * I don't know how to hide this from the child class so just don't use it!!
+     *
+     * @param menuItem not used, should be null
+     */
+    @Override
     public void init(MenuItem menuItem) {
+        throw new RuntimeException("Don't use this!!");
+    }
+
+    /**
+     * Initialize the controller
+     */
+    public void init() {
         try {
             String ver = new String(App.class.getResourceAsStream("/version.txt").readAllBytes(), StandardCharsets.UTF_8);
             if (ver.length() > 0) {

@@ -784,22 +784,23 @@ public class MainController {
     private void aboutButtonClicked() {
         try {
             FXMLLoader loader = new FXMLLoader(App.class.getResource("about-overlay.fxml"));
-            overlay = new AboutOverlayController();
-            loader.setController(overlay);
+            AboutOverlayController ovl = new AboutOverlayController();
+            overlay = ovl;
+            loader.setController(ovl);
             loader.load();
-            overlay.init(null);
-            root.getChildren().add(overlay.root);
-            overlay.updateSize(width, height);
-            overlay.root.setOpacity(0);
-            FXUtils.fadeIn(overlay.root);
+            ovl.init();
+            root.getChildren().add(ovl.root);
+            ovl.updateSize(width, height);
+            ovl.root.setOpacity(0);
+            FXUtils.fadeIn(ovl.root);
             introOverlay.stopVideos();
 
-            overlay.imageClose.setOnMouseClicked(event -> {
+            ovl.imageClose.setOnMouseClicked(event -> {
                 closeOverlay();
                 introOverlay.startVideos();
             });
 
-            overlay.root.setOnMouseClicked(event -> {
+            ovl.root.setOnMouseClicked(event -> {
                 closeOverlay();
                 introOverlay.startVideos();
             });
