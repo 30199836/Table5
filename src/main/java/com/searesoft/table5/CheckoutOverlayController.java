@@ -1,5 +1,6 @@
 package com.searesoft.table5;
 
+import com.searesoft.table5.menu.MenuItem;
 import com.searesoft.table5.menu.Order;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -53,6 +54,16 @@ public class CheckoutOverlayController extends BaseMenuController {
     }
 
     private Order order;
+
+    /**
+     * I don't know how to hide this from the child class so just don't use it!!
+     *
+     * @param menuItem not used, should be null
+     */
+    @Override
+    public void init(MenuItem menuItem) {
+        throw new RuntimeException("Don't use this!!");
+    }
 
     /**
      * Initialize the controller
