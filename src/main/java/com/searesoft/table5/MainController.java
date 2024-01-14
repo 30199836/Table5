@@ -26,6 +26,8 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -716,22 +718,25 @@ public class MainController {
         CheckoutOverlayController ovl = (CheckoutOverlayController) overlay;
         try {
             ovl.updateDetails();
-            String desktopPath = Registry.readString(
+            String outputPath = Registry.readString(
                     "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders",
                     "Desktop");
 
-            if (desktopPath == null) {
-                MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.orderID() + "\nThank you for your custom!", "Error", "Unable to determine the Desktop folder location to save the receipt");
+            if (!Files.exists(Paths.get(outputPath))) {
+                outputPath = System.getProperty("user.dir");
+            }
+
+            if (!Files.exists(Paths.get(outputPath))) {
+                MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.orderID() + "\nThank you for your custom!", "Error", "Unable to determine the output folder location to save the receipt");
             } else {
                 String filename = "Table5Order" + ovl.orderID() + ".png";
                 ovl.showDetails();
                 try {
-                    FXUtils.snapshot(ovl.vBoxOrderRoot, desktopPath + "\\" + filename);
+                    FXUtils.snapshot(ovl.vBoxOrderRoot, outputPath + "\\" + filename);
                 } finally {
                     ovl.hideDetails();
                 }
-                //     MessageBox.show(desktopPath + "\\"  + filename);
-                MessageBox.show("\"" + filename + "\" was saved to your desktop.");
+                MessageBox.show("Your receipt was saved to\n" + outputPath + "\\" + filename);
             }
         } catch (Exception e) {
             MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.orderID(), "Error", "An error occurred");
