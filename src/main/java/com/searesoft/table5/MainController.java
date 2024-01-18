@@ -722,11 +722,11 @@ public class MainController {
                     "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders",
                     "Desktop");
 
-            if (!Files.exists(Paths.get(outputPath))) {
+            if (outputPath == null || !Files.exists(Paths.get(outputPath))) {
                 outputPath = System.getProperty("user.dir");
             }
 
-            if (!Files.exists(Paths.get(outputPath))) {
+            if (outputPath == null || !Files.exists(Paths.get(outputPath))) {
                 MessageBox.show(Alert.AlertType.ERROR, "Please collect your order using Order ID " + ovl.orderID() + "\nThank you for your custom!", "Error", "Unable to determine the output folder location to save the receipt");
             } else {
                 String filename = "Table5Order" + ovl.orderID() + ".png";
